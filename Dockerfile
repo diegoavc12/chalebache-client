@@ -1,4 +1,4 @@
-FROM node:13.12.0-alpine
+FROM node:14-alpine
 
 # set working directory
 WORKDIR /home/client/
