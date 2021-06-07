@@ -1,0 +1,28 @@
+
+.searchSin{
+    display: flex;
+    
+    
+    justify-content: center;
+    flex-direction: row;
+    align-self:center;
+    height: 5vh;
+    padding-left: 3vh;
+    
+}
+
+#location{
+    width: 100%;
+    border-radius: 5px;
+    border:none;
+    opacity: 80%;
+    color:#3f5179;
+    padding-left: 5px;
+    
+}
+
+#location:focus{
+    border:none;
+    outline: none;
+    
+}
