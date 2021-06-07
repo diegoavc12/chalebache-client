@@ -6,8 +6,8 @@ import axios from 'axios';
 function GoogleMaps (props) {
 
   const center = {
-    lat: 20.732,
-    lng: -103.456
+    lat: 20.731447,
+    lng: -103.453257
   }
 
   const style = {
@@ -15,7 +15,7 @@ function GoogleMaps (props) {
     height: '75vh',
   }
 
-  const { isLoaded } = useJsApiLoader({
+  const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyCK7OlpjunyTdWaF1NJ4RblpysJAWm1KBo"
   })
@@ -40,20 +40,17 @@ function GoogleMaps (props) {
   }
 
   useEffect(()=>{
-    axios.get('http://localhost:3030/api/potholes').then(res=>setpotholes(res.data) ).catch(err => console.log(err))
+    axios.get(`${process.env.API_CRUD}/api/potholes`).then(res=>setpotholes(res.data) ).catch(err => console.log(err))
   }, [])
 
   return isLoaded ? (
       <GoogleMap
+        onLoad={onLoad}
         mapContainerStyle={style}
         center={center}
         zoom={16}
-        onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        {/* <Marker
-          position={{lat: 20.735, lng: -103.405}}
-        /> */}
         {potholes.map((pothole,i) => {
           return (<Marker
                     key={i}
