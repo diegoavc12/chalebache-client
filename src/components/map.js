@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState, useCallback, memo } from 'react
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import { BacheContext } from '../components/bacheContext'
 import axios from 'axios';
+import dotenv from 'dotenv';
 
 function GoogleMaps (props) {
 
@@ -40,7 +41,8 @@ function GoogleMaps (props) {
   }
 
   useEffect(()=>{
-    axios.get(`${process.env.API_CRUD}/api/potholes`).then(res=>setpotholes(res.data) ).catch(err => console.log(err))
+    const API_CRUD="http://localhost:3030"
+    axios.get(`${API_CRUD}/api/potholes`).then(res=>setpotholes(res.data) ).catch(err => console.log(err))
   }, [])
 
   return isLoaded ? (

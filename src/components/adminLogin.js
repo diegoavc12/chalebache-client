@@ -12,8 +12,8 @@ const AdminLogin =  () =>  {
         }
 
         const sendLogin = async() =>{
-
-            const resp = await axios.post(`${process.env.API_CRUD}/admin/login`,
+            const API_CRUD="http://localhost:3030"
+            const resp = await axios.post(`${API_CRUD}/admin/login`,
             {
                 "username": data.username, "password":data.password
             })
