@@ -8,11 +8,6 @@ import dotenv from 'dotenv';
 
 function GoogleMaps (props) {
 
-  const center = {
-    lat: 20.731447,
-    lng: -103.453257
-  }
-
   const style = {
     width: '75vw',
     height: '75vh',
@@ -20,7 +15,8 @@ function GoogleMaps (props) {
 
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyCFqy0zNs8gFSwaK7SHiOas2DpSfvxJAHg"
+    googleMapsApiKey: "AIzaSyCFqy0zNs8gFSwaK7SHiOas2DpSfvxJAHg",
+    libraries: "places"
   })
 
   const [map, setMap] = useState(null)
@@ -51,7 +47,7 @@ function GoogleMaps (props) {
       <GoogleMap
         onLoad={onLoad}
         mapContainerStyle={style}
-        center={center}
+        center={props.center}
         zoom={16}
         onUnmount={onUnmount}
       >
