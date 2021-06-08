@@ -1,12 +1,67 @@
 import React, { Component } from 'react'
 import './styles/searchBar.css'
+import PlacesAutocomplete, {
+    geocodeByAddress,
+    getLatLng
+  } from "react-places-autocomplete";
+  
+  export default function App() {
+    const [address, setAddress] = React.useState("");
+    const [coordinates, setCoordinates] = React.useState({
+      lat: null,
+      lng: null
+    });
+  
+    const handleSelect = async value => {
+      const results = await geocodeByAddress(value);
+      const latLng = await getLatLng(results[0]);
+      setAddress(value);
+      setCoordinates(latLng);
+    };
 
-export default class searchbar extends Component {
-    render() {
-        return (
-            <div className="searchSin">
-                <input type="text" id="location" name="locaMap" placeholder="Busca una ubicación"></input>
-            </div>
-        )
+
+    function modifyValues(){
+        if(coordinates.lat!=null){
+            var locValues ={
+                lat: coordinates.lat,
+                lng: coordinates.lng
+            }
+        }
+        console.log(locValues)
     }
-}
+
+    return (
+      <div>
+        <PlacesAutocomplete
+          value={address}
+          onChange={setAddress}
+          onSelect={handleSelect}
+        >
+          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+            <div className="barPos">
+              
+              <div className="searchSin">
+              <input {...getInputProps({ placeholder: "busca una dirección", id:"location" })} />
+              {modifyValues()}
+              {console.log(coordinates.lat)}
+              {console.log(coordinates.lng)}
+              </div>
+  
+              <div>
+                {loading ? <div>...loading</div> : null}
+                {suggestions.map(suggestion => {
+                    const style = {
+                        backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                      };
+                  return (
+                    
+                    <div></div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </PlacesAutocomplete>
+      </div>
+    );
+  }

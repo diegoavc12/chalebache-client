@@ -10,8 +10,8 @@ export default class AdminButton extends Component {
                 <Link to='/login'>
                 <button id="adminButtonsito" >Administrador</button>
                 </Link>
-                
             </div>
         )
     }
 }
+

@@ -3,6 +3,8 @@ import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import { BacheContext } from '../components/bacheContext'
 import axios from 'axios';
 
+
+
 function GoogleMaps (props) {
 
   const center = {
@@ -17,7 +19,7 @@ function GoogleMaps (props) {
 
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyCK7OlpjunyTdWaF1NJ4RblpysJAWm1KBo"
+    googleMapsApiKey: "AIzaSyCFqy0zNs8gFSwaK7SHiOas2DpSfvxJAHg"
   })
 
   const [map, setMap] = useState(null)
