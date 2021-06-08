@@ -39,8 +39,8 @@ function GoogleMaps (props) {
   }
 
   useEffect(()=>{
-    const API_CRUD="http://localhost:3030"
-    axios.get(`${API_CRUD}/api/potholes`).then(res=>setpotholes(res.data) ).catch(err => console.log(err))
+    // const API_CRUD="http://localhost:3030"
+    axios.get(`${process.env.API_CRUD}/api/potholes`).then(res=>setpotholes(res.data) ).catch(err => console.log(err))
   }, [])
 
   return isLoaded ? (
