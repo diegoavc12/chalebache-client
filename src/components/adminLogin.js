@@ -12,8 +12,7 @@ const AdminLogin =  () =>  {
         }
 
         const sendLogin = async() =>{
-            const API_CRUD="http://localhost:3030"
-            console.log(process.env.REACT_APP_API_CRUD);
+            const API_CRUD="http://129.146.169.60:1441"
             const resp = await axios.post(`${API_CRUD}/admin/login`,
             {
                 "username": data.username, "password":data.password
