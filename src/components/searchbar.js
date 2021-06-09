@@ -56,7 +56,9 @@ import PlacesAutocomplete, {
                       };
                   return (
                     
-                    <div></div>
+                    <div {...getSuggestionItemProps(suggestion, { style })}>
+                    {suggestion.description}
+                  </div>
                   );
                 })}
               </div>

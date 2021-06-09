@@ -3,7 +3,7 @@ import Test from './test';
 import Map from './map';
 import BacheCRUD from './bachelogs';
 import Searchbar from './searchbar';
-import AdminButton from './adminButton';
+import AdminButton from './logoffButton';
 import { BacheProvider } from './bacheContext';
 
 

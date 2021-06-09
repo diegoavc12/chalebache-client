@@ -50,6 +50,8 @@ function GoogleMaps (props) {
         center={props.center}
         zoom={16}
         onUnmount={onUnmount}
+        
+
       >
         {potholes.map((pothole,i) => {
           return (<Marker
