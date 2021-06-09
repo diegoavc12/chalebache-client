@@ -7,8 +7,8 @@ import axios from 'axios'
 const elimiBache= async(bache) =>{
     try {
         console.log(bache)
-        const API_CRUD="http://localhost:3030"
-        const resp = await axios.delete(`${process.env.API_CRUD}/api/potholes/${bache._id}`)
+        const API_CRUD="http://129.146.169.60:1441"
+        const resp = await axios.delete(`${API_CRUD}/api/potholes/${bache._id}`)
     } catch (error) {
         
     }
