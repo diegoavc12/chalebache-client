@@ -1,23 +1,21 @@
-#adminButtonsito{
-    font-size: 15px;
-    justify-content:'end';
-    align-self:'center';
-    height: 5vh;
-    border-radius: 5px;
-    background-color: #8ee0ed;
-    box-shadow: 5px 10px;
-    color:#3f5179;
-    border:none;
+#adminButtonsito {
+  font-size: 15px;
+  justify-content: "end";
+  align-self: "center";
+  height: 5vh;
+  border-radius: 5px;
+  background-color: #3a3d3d;
+  box-shadow: 5px 10px;
+  color: #a2a7a7;
+  border: none;
 
-    margin-right: 3vh;
+  margin-right: 3vh;
 }
 
-#adminButtonsito:hover{
-    cursor:pointer;
-    
+#adminButtonsito:hover {
+  cursor: pointer;
 }
 
-#adminButtonsito:active{
-    transform: translateY(1px);
-    
+#adminButtonsito:active {
+  transform: translateY(1px);
 }

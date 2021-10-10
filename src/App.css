@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-
 }
 
 .App-logo {
@@ -29,31 +28,30 @@
   color: #61dafb;
 }
 
-.headE{
-  grid-template-columns: 1fr 1fr 1fr ;
+.headE {
+  grid-template-columns: 1fr 1fr 1fr;
   display: grid;
-  background: #3f5179;
+  background: #a2a7a7;
   margin-bottom: 3vh;
-  
 }
 
-#testsito{
+#testsito {
   margin-top: 50%;
 }
 
-#adminsito{
+#adminsito {
   right: 0;
   background-color: cyan;
 }
 
 .wrapper {
-  grid-template-columns: 3fr 1fr ;
+  grid-template-columns: 3fr 1fr;
   display: grid;
- }
+}
 
- .l{
-   border-radius: 5px;
- }
+.l {
+  border-radius: 5px;
+}
 
 @keyframes App-logo-spin {
   from {

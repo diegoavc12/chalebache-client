@@ -8,6 +8,11 @@ import dotenv from 'dotenv';
 
 function GoogleMaps (props) {
 
+    const mapOptions = {
+    zoom: 8,
+    center: { lat: 20.6736, lng: -103.344},
+  };
+
   const style = {
     width: '75vw',
     height: '75vh',
@@ -47,8 +52,8 @@ function GoogleMaps (props) {
       <GoogleMap
         onLoad={onLoad}
         mapContainerStyle={style}
-        center={props.center}
-        zoom={16}
+        center={ mapOptions.center}
+        zoom={8}
         onUnmount={onUnmount}
         
 
