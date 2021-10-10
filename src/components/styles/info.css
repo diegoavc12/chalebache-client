@@ -79,16 +79,6 @@
   margin-bottom: 1.5vh;
 }
 
-table {
-  width: 100%;
-  border-radius: 5px;
-  background-color: #a2a7a7;
-}
-
-th {
-  border-bottom: 1px solid #ddd;
-}
-
 .card p {
   color: var(--grayishBlue);
 }

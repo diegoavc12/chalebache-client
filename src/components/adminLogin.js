@@ -29,6 +29,9 @@ const AdminLogin =  () =>  {
         return (
             <div >
                 <div className='loginApp'></div>
+                <div id="mySidenav" class="sidenav">
+                    <a href="/" id="about">Inicio</a>
+                </div>
                 <div id='formLogin'>
                     <form className='box'>
                          <img className="icon" src={image}/>
