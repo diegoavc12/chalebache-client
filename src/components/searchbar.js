@@ -39,10 +39,10 @@ import PlacesAutocomplete, {
           onSelect={handleSelect}
         >
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-            <div className="barPos">
+            <div className="searchBar">
               
-              <div className="searchSin">
-              <input {...getInputProps({ placeholder: "busca una dirección", id:"location" })} />
+              <div className="size">
+              <input {...getInputProps({ placeholder: "Busca una dirección", id:"location" })} />
               {modifyValues()}
               {console.log(coordinates.lat)}
               {console.log(coordinates.lng)}

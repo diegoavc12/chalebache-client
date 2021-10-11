@@ -4,6 +4,8 @@ import Map from './map';
 import BacheInfo from './bacheInfo';
 import Searchbar from './searchbar';
 import AdminButton from './adminButton';
+import Navbar from './navbar';
+import Footer from './footer';
 import { BacheProvider } from './bacheContext';
 
 
@@ -14,11 +16,18 @@ export default function MainUsersApp () {
       })
     return (
         <div>
-            <div className="headE">
+            {/* <div className="headE">
                 <Searchbar id ="searchsito" center={setCenter}></Searchbar>
                 <Test id="testsito"></Test>
                 <AdminButton id="adminsito"></AdminButton>
+            </div> */}
+
+            <div>
+                 <Navbar></Navbar>
             </div>
+
+            <br />
+           
         
             <div className="wrapper">
                 <BacheProvider>
@@ -26,6 +35,8 @@ export default function MainUsersApp () {
                 <BacheInfo name="x" location="1,2" seriedad="10" className="infos"/>
                 </BacheProvider>
             </div>
+
+            <Footer></Footer>
         </div>
     )
 

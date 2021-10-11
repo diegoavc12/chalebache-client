@@ -136,5 +136,6 @@ input {
 /* The about link: 20px from the top with a green background */
 #about {
   top: 20px;
-  background-color: #a2a7a7;
+  background-color: #3e4044;
+  opacity: 0.6;
 }
