@@ -47,6 +47,7 @@
 .wrapper {
   grid-template-columns: 3fr 1fr;
   display: grid;
+  margin-left: 1rem;
 }
 
 .l {

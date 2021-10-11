@@ -16,6 +16,7 @@ function GoogleMaps (props) {
   const style = {
     width: '75vw',
     height: '75vh',
+
   }
 
   const { isLoaded, loadError } = useJsApiLoader({
