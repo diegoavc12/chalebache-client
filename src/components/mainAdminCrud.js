@@ -20,31 +20,16 @@ export default class MainAdminCRUD extends Component {
                     <Test id="testsito"></Test>
                     <AdminButton id="adminsito"></AdminButton>
                 </div> */}
-                
-            <div>
-                 <Navbar></Navbar>
-            </div>
-
-            <br />
-            
+                <Navbar></Navbar>
+                <br />
                 <div className="wrapper">
                     <BacheProvider>
                     <Map class="l"/>
                     <BacheCRUD name="x" location="1,2" seriedad="10" className="infos"/>
-
-
                     </BacheProvider>
-
-                    
                 </div>
-                <div >
-
-                    <Dashboard></Dashboard>
-                    </div>
-                    <div>
-                    <Footer></Footer> 
-                    </div>
-                   
+                <Dashboard></Dashboard>
+                {/* <Footer></Footer>  */}
             </div>
             
         )

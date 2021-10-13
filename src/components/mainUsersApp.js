@@ -21,21 +21,14 @@ export default function MainUsersApp () {
                 <Test id="testsito"></Test>
                 <AdminButton id="adminsito"></AdminButton>
             </div> */}
-
-            <div>
-                 <Navbar></Navbar>
-            </div>
-
+             <Navbar></Navbar>
             <br />
-           
-        
             <div className="wrapper">
                 <BacheProvider>
                 <Map class="l" center={center}/>
                 <BacheInfo name="x" location="1,2" seriedad="10" className="infos"/>
                 </BacheProvider>
             </div>
-
             <Footer></Footer>
         </div>
     )

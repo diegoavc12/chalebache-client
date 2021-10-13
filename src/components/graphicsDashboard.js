@@ -60,23 +60,15 @@ const data = [
 export default class Dashboard extends Component {
     render() {
         return (
-           
-
             <div>
                 <div className="title">Dashboard</div>
-                
-
-                
-                       <div class="container" id="chart1" > 
+                <div class="container" id="chart1" > 
                   <BarChart data={data} />
                      </div>
                      <div class="container" id="chart2">
                    <DonutChart data={donutData}  />
-                     </div>
-                
-                    
+                     </div> 
             </div>
-            
         )
     }
 }
