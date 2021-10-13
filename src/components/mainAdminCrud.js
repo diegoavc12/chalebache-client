@@ -4,6 +4,7 @@ import Map from './map';
 import BacheCRUD from './bachelogs';
 import Searchbar from './searchbar';
 import AdminButton from './logoffButton';
+import Navbar from './navbarAdmin';
 import Footer from './footer';
 import { BacheProvider } from './bacheContext';
 
@@ -13,11 +14,17 @@ export default class MainAdminCRUD extends Component {
         return (
             <div>
                 
-                <div className="headE">
+                {/* <div className="headE">
                     <Searchbar id ="searchsito"></Searchbar>
                     <Test id="testsito"></Test>
                     <AdminButton id="adminsito"></AdminButton>
-                </div>
+                </div> */}
+                
+            <div>
+                 <Navbar></Navbar>
+            </div>
+
+            <br />
             
                 <div className="wrapper">
                     <BacheProvider>
@@ -26,7 +33,7 @@ export default class MainAdminCRUD extends Component {
                     </BacheProvider>
                 </div>
 
-                
+                <Footer></Footer>
                  
             </div>
         )

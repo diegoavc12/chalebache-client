@@ -74,3 +74,15 @@ img {
   height: 3rem;
   align-content: center;
 }
+
+#logoff {
+  margin-top: 0.5rem;
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-right: 1rem;
+}
