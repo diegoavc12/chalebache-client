@@ -6,6 +6,7 @@ import Searchbar from './searchbar';
 import AdminButton from './logoffButton';
 import Navbar from './navbarAdmin';
 import Footer from './footer';
+import Dashboard from './graphicsDashboard';
 import { BacheProvider } from './bacheContext';
 
 
@@ -30,12 +31,22 @@ export default class MainAdminCRUD extends Component {
                     <BacheProvider>
                     <Map class="l"/>
                     <BacheCRUD name="x" location="1,2" seriedad="10" className="infos"/>
-                    </BacheProvider>
-                </div>
 
-                <Footer></Footer>
-                 
+
+                    </BacheProvider>
+
+                    
+                </div>
+                <div >
+
+                    <Dashboard></Dashboard>
+                    </div>
+                    <div>
+                    <Footer></Footer> 
+                    </div>
+                   
             </div>
+            
         )
     }
 }
