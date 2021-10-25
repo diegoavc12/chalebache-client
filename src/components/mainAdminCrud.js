@@ -2,14 +2,18 @@ import React, { Component } from 'react'
 import Test from './test';
 import Map from './map';
 import BacheCRUD from './bachelogs';
+import Navbar from './navbarAdmin';
 import Searchbar from './searchbar';
 import AdminButton from './logoffButton';
-import Navbar from './navbarAdmin';
 import Footer from './footer';
 import LineChart from './lineChart';
 import DonutChart from './donutChart';
 import Dashboard from './dashBoard';
+import PotholesList from './potholesList'
+import PotholesDash from './potholesDash'
+import { Icon, List } from 'semantic-ui-react'
 import { BacheProvider } from './bacheContext';
+import './styles/dashboard.css'
 
 
 export default class MainAdminCRUD extends Component {
@@ -32,14 +36,16 @@ export default class MainAdminCRUD extends Component {
                     </BacheProvider>
                     
                 </div>
-
+                <br />
+                <br />
+                <PotholesDash className="grid"/>
                 {/* <div className="dashboard">
                     <h2>LineChart</h2>
                     <LineChart></LineChart>
                     <DonutChart></DonutChart>
                     
                 </div> */}
-                <Footer></Footer> 
+                {/* <Footer></Footer>  */}
             </div>
         )
     }

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { BacheContext } from './bacheContext'
+import Modal from './modalCRUD'
 import './styles/info.css'
 import './styles/crud.css'
 import axios from 'axios'
@@ -39,7 +40,8 @@ function BacheCRUD() {
                 <p>{bache.numIncidents}</p>
             </div>
                  <div className="bacheCRUD">
-                    <button id="elimiButton" className="crudButton" onClick={()=>elimiBache(bache)}>Eliminar</button>
+                     <Modal/>
+                    {/* <button id="elimiButton" className="crudButton" onClick={()=>elimiBache(bache)}>Eliminar</button> */}
                 </div>
             </div>
 
