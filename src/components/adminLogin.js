@@ -33,7 +33,7 @@ const AdminLogin =  () =>  {
                     <a href="/" id="about">Inicio</a>
                 </div>
                 <div id='formLogin'>
-                    <form className='box'>
+                    <form className='newBox'>
                          <img className="icon" src={image}/>
                         <h1>Inicio de Sesión</h1>
                         <input id="loginI" type="text" name="username" placeholder="USUARIO / CORREO" onChange={inputChange}></input>

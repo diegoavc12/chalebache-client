@@ -17,9 +17,9 @@ const GridExampleDividedNumber = () => (
         <Segment><h1>HeatMap Chart</h1></Segment>
       </Grid.Column>
     </Grid.Row>
-            <Grid.Row>
+    <Grid.Row>
       <Grid.Column>
-        <Segment><h1>Pothole List</h1></Segment>
+          <PotholesList/>
       </Grid.Column>
     </Grid.Row>
     <Grid.Row>

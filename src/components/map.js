@@ -1,12 +1,17 @@
 /* eslint-disable */
 import React, { useContext, useEffect, useState, useCallback, memo } from 'react'
-import { GoogleMap, useJsApiLoader, Marker, HeatmapLayer, LoadScriot, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, HeatmapLayer, InfoWindow } from '@react-google-maps/api';
 import { BacheContext } from '../components/bacheContext'
 import { Button } from 'semantic-ui-react'
 import axios from 'axios';
 import dotenv from 'dotenv';
 import {formatRelative, parseISO } from "date-fns"
+import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
+import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
+import "@reach/combobox/styles.css"
+import './styles/map.css'
 
+const libraries = ['places'];
 
 function GoogleMaps({styles}) {
 
@@ -30,14 +35,16 @@ function GoogleMaps({styles}) {
 
   const { isLoaded, loadError } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyCFqy0zNs8gFSwaK7SHiOas2DpSfvxJAHg",
-    libraries: ["places", "visualization"]
+    //AIzaSyCFqy0zNs8gFSwaK7SHiOas2DpSfvxJAHg
+    googleMapsApiKey: "AIzaSyCbIZvNMFR73dZngkTGFzX-PPmnXcnZ704",
+    libraries,
   })
 
   const [map, setMap] = useState(null)
   const  [potholes, setpotholes] = useState([])
 
-  const { setBache } = useContext(BacheContext)
+
+  const { data, setBache } = useContext(BacheContext)
 
   const onLoad = useCallback(function callback(map) {
     // const bounds = new window.google.maps.LatLngBounds();
@@ -45,6 +52,11 @@ function GoogleMaps({styles}) {
     // setMap(map)
     mapRef.current= map
   }, [])
+
+  const panTo = React.useCallback(({lat, lng}) => {
+    mapRef.current.panTo({ lat, lng});
+    map.current.setZoom(14)
+  },[])
 
   const onUnmount = useCallback(function callback( map ) {
     setMap(null)
@@ -54,6 +66,7 @@ function GoogleMaps({styles}) {
     setBache(obj)
     setLat(obj.lat)
     setLng(obj.lng)
+     mapRef.current.setZoom(32)
   }
 
   useEffect(()=>{
@@ -85,6 +98,8 @@ function GoogleMaps({styles}) {
   return isLoaded ? (
     <div>
       <Button>HeatMap</Button>
+
+      <Search panTo={panTo}/>
       <GoogleMap
         onLoad={onLoad}
         mapContainerStyle={style}
@@ -96,9 +111,12 @@ function GoogleMaps({styles}) {
         {potholes.map((pothole,i) => {
           return (<Marker
                     key={i}
+                    onDblClick = {() => {
+                    
+                    }}
                     onClick={() => {
-                    changeBache(pothole)
-                    setSelected(pothole)
+                     setSelected(pothole)
+                     changeBache(pothole)
                     }}
                     position={{lat: pothole.lat, lng: pothole.lng}}
                     icon ={{
@@ -139,6 +157,40 @@ function GoogleMaps({styles}) {
     </div>
 
   ) : <></>
+}
+
+function Search({panTo}) {
+  const {ready, value, suggestions: {status, data}, setValue, clearSuggestions} = usePlacesAutocomplete({
+    requestOptions:{
+      location: { lat: () => 20.6736, lng: () => -103.344},
+      radius: 200*1000,
+    },
+  })
+
+  return (<div className="search">
+      <Combobox onSelect={ async (address) =>{
+        setValue(address,false);
+        clearSuggestions()
+        try{
+          const results = getGeocode({address});
+          const {lat, lng} = await getLatLng(results[0]);
+          panTo({lat, lng});
+
+        } catch(error){
+          console.log(error);
+
+        }
+    console.log(address);
+  }}>
+    <ComboboxInput value={value} onChange={(e) => {
+      setValue(e.target.value);
+    }} disabled={!ready} placeholder="Ingresa una dirección"/>
+    <ComboboxPopover>
+      {status === "OK" && data.map((id, description)=> <ComboboxOption key={id} value={description}/>)}
+    </ComboboxPopover>
+  </Combobox>
+  </div>
+)
 }
 
 export default memo(GoogleMaps)

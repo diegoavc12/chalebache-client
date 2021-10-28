@@ -14,7 +14,7 @@ export default class navbar extends Component {
                     <a className="active" href="/login">Admin</a>
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
-                     <Searchbar className="searchBar" ></Searchbar>
+                     {/* <Searchbar className="searchBar" ></Searchbar> */}
                     {/* <input type="text" placeholder="Search.."/> */}
                 </div>
                 

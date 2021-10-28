@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect, useContext } from 'react'
 import Test from './test';
 import Map from './map';
 import BacheCRUD from './bachelogs';
@@ -12,12 +12,14 @@ import Dashboard from './dashBoard';
 import PotholesList from './potholesList'
 import PotholesDash from './potholesDash'
 import { Icon, List } from 'semantic-ui-react'
-import { BacheProvider } from './bacheContext';
+import { BacheContext } from './bacheContext';
 import './styles/dashboard.css'
 
 
-export default class MainAdminCRUD extends Component {
-    render() {
+
+export default function MainAdminCRUD() {
+
+
         return (
             <div>
                 
@@ -30,14 +32,12 @@ export default class MainAdminCRUD extends Component {
                 <br />
                 
                 <div className="wrapper">
-                    <BacheProvider>
                     <Map class="l"/>
-                    <BacheCRUD name="x" location="1,2" seriedad="10" className="infos"/>
-                    </BacheProvider>
-                    
+                    <BacheCRUD name="x" location="1,2" seriedad="10" className="infos"/>   
                 </div>
                 <br />
                 <br />
+
                 <PotholesDash className="grid"/>
                 {/* <div className="dashboard">
                     <h2>LineChart</h2>
@@ -48,5 +48,4 @@ export default class MainAdminCRUD extends Component {
                 {/* <Footer></Footer>  */}
             </div>
         )
-    }
 }

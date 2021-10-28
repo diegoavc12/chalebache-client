@@ -1,0 +1,16 @@
+.search {
+  position: absolute;
+  top: 1rem;
+  left: 65%;
+  transform: translate(-50%);
+  width: 100%;
+  max-width: 400px;
+  z-index: 10;
+}
+
+.search input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  color: black;
+}
