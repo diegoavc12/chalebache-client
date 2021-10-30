@@ -1,20 +1,26 @@
 /* eslint-disable */
 import React, { useContext, useEffect, useState, useCallback, memo } from 'react'
-import { GoogleMap, useJsApiLoader, Marker, HeatmapLayer, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, Marker, HeatmapLayer, InfoWindow, useLoadScript  } from '@react-google-maps/api';
 import { BacheContext } from '../components/bacheContext'
 import { Button } from 'semantic-ui-react'
-import axios from 'axios';
-import dotenv from 'dotenv';
 import {formatRelative, parseISO } from "date-fns"
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
 import "@reach/combobox/styles.css"
 import './styles/map.css'
 
-const libraries = ['places'];
 
-function GoogleMaps({styles}) {
+const libraries = ['places', 'visualization'];
 
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
+function GoogleMaps() {
   const [show, setShow] = useState(false)
   const [lat, setLat] = useState(20.6736)
   const [lng, setLng] = useState(-103.344)
@@ -27,13 +33,17 @@ function GoogleMaps({styles}) {
     center: { lat: lat, lng: lng},
   };
 
+  const heatMapOptions = {
+    radius: 20,
+  }
+
   const style = {
-    width: '75vw',
+    width: '100vw',
     height: '75vh',
 
   }
 
-  const { isLoaded, loadError } = useJsApiLoader({
+  const { isLoaded, loadError } = useLoadScript ({
     id: 'google-map-script',
     //AIzaSyCFqy0zNs8gFSwaK7SHiOas2DpSfvxJAHg
     googleMapsApiKey: "AIzaSyCbIZvNMFR73dZngkTGFzX-PPmnXcnZ704",
@@ -42,14 +52,12 @@ function GoogleMaps({styles}) {
 
   const [map, setMap] = useState(null)
   const  [potholes, setpotholes] = useState([])
-
-
-  const { data, setBache } = useContext(BacheContext)
+  const { data, setBache, bache } = useContext(BacheContext)
 
   const onLoad = useCallback(function callback(map) {
     // const bounds = new window.google.maps.LatLngBounds();
     // map.fitBounds(bounds);
-    // setMap(map)
+    setMap(map)
     mapRef.current= map
   }, [])
 
@@ -62,42 +70,59 @@ function GoogleMaps({styles}) {
     setMap(null)
   }, [])
 
+  const onLoadHeat = heatmapLayer => {
+  console.log('HeatmapLayer onLoad heatmapLayer: ', heatmapLayer)
+}
+
+const onUnmountHeat = heatmapLayer => {
+  console.log('HeatmapLayer onUnmount heatmapLayer: ', heatmapLayer)
+}
   const changeBache = (obj) => {
     setBache(obj)
     setLat(obj.lat)
     setLng(obj.lng)
-     mapRef.current.setZoom(32)
+    mapRef.current.setZoom(32)
   }
 
   useEffect(()=>{
-    const API_CRUD="http://129.146.169.60:1441/"
-    axios.get(`${API_CRUD}api/potholes/`).then(res=>setpotholes(res.data) ).catch(err => console.log("Error: "+API_CRUD))
+    if (!isEmpty(bache)) {
+      setSelected(bache)
+      setLat(bache.lat)
+      setLng(bache.lng)
+      mapRef.current.setZoom(32)
+    }
+   }, [bache])
+
+  const heatMapData = React.useMemo(() => {
+    data.forEach(pothole => {
+    potholes.push(new google.maps.LatLng(pothole.lat, pothole.lng))
+   });
+    return potholes
   }, [])
-
-  const heatMapData ={ 
-    position:[
-      {lat: 20.618683, lng: -103.4694},
-      {lat: 20.610081, lng: -103.466737},
-      {lat: 20.618683, lng: -103.4694},
-      {lat: 20.618683, lng: -103.4694}
-    ]
-  }
   
-  potholes.forEach(pothole => {
-    heatMapData.position.push({lat:pothole.lat, lng:pothole.lng})
-  });
-
   const tooggleHeatMap=() =>{
     setShow(!show)
-    if(this._googleMap!== undefined){
-      this._googleMap.setMap(map)
-    }
   }
 
+  const resetMap=() => {
+    setBache({})
+    mapRef.current.setZoom(8)
+    setLat(20.6736)
+    setLng(-103.344)
+    setSelected(null)
+  }
+
+  if (loadError) {
+    return <div>Map cannot be loaded right now, sorry.</div>
+  }
 
   return isLoaded ? (
     <div>
-      <Button>HeatMap</Button>
+      <Button.Group className="heat-btn">
+      <Button toggle primary active={show} onClick={tooggleHeatMap} size="large" >HeatMap</Button>
+       <Button.Or />
+      <Button primary onClick={resetMap} size="large">Reset</Button>
+      </Button.Group>
 
       <Search panTo={panTo}/>
       <GoogleMap
@@ -108,12 +133,9 @@ function GoogleMaps({styles}) {
         onUnmount={onUnmount} 
 
       >
-        {potholes.map((pothole,i) => {
+        {data.map((pothole,i) => {
           return (<Marker
                     key={i}
-                    onDblClick = {() => {
-                    
-                    }}
                     onClick={() => {
                      setSelected(pothole)
                      changeBache(pothole)
@@ -122,27 +144,12 @@ function GoogleMaps({styles}) {
                     icon ={{
                       url:require('./imgs/chale2.png').default,
                       scaledSize: new window.google.maps.Size(30,30),
-                      // origin: new window.google.maps.Point(0,0),
-                      // anchor: new window.google.maps.Point(15.15)
                     }}
+                    visible={!show}
                   />)
         })}
-         {/* <HeatmapLayer onLoad={onLoad} onUnmount={onUnmount}      data={[
-  new google.maps.LatLng(37.782, -122.447),
-  new google.maps.LatLng(37.782, -122.445),
-  new google.maps.LatLng(37.782, -122.443),
-  new google.maps.LatLng(37.782, -122.441),
-  new google.maps.LatLng(37.782, -122.439),
-  new google.maps.LatLng(37.782, -122.437),
-  new google.maps.LatLng(37.782, -122.435),
-  new google.maps.LatLng(37.785, -122.447),
-  new google.maps.LatLng(37.785, -122.445),
-  new google.maps.LatLng(37.785, -122.443),
-  new google.maps.LatLng(37.785, -122.441),
-  new google.maps.LatLng(37.785, -122.439),
-  new google.maps.LatLng(37.785, -122.437),
-  new google.maps.LatLng(37.785, -122.435)
-]} /> */}
+
+        {show && <HeatmapLayer onLoad={onLoadHeat} onUnmount={onUnmountHeat}   data={heatMapData}  options={heatMapOptions}/>}
 
       {selected?(<InfoWindow position={{lat:selected.lat, lng: selected.lng}} onCloseClick={() =>{
         setSelected(null);
@@ -153,9 +160,7 @@ function GoogleMaps({styles}) {
         </div>
       </InfoWindow>):null}
       </GoogleMap>
-      
     </div>
-
   ) : <></>
 }
 

@@ -1,9 +1,8 @@
 import React, {useContext, useState, useEffect, useRef} from 'react'
-import { Input, Dropdown, Segment, Table } from 'semantic-ui-react'
+import { Input, Segment, Table } from 'semantic-ui-react'
 import { BacheContext } from './bacheContext'
+import { toast } from 'react-toastify';
 import _ from 'lodash'
-
-
 
 function exampleReducer(state, action) {
   switch (action.type) {
@@ -28,7 +27,8 @@ function exampleReducer(state, action) {
 }
 
 function Lista() {
-  const {data} = useContext(BacheContext)
+
+  const {data, setBache} = useContext(BacheContext)
   const searchBox = useRef()
    const optionsBox = useRef()
    const [matchEvent, setMatchEvent] = useState(data)
@@ -53,7 +53,7 @@ function Lista() {
         } 
       }
       if (eventMatch === 0) {
-        eventMatch = [{name: "Sin resultados"}]
+        setMatchEvent(data)
       }
       setMatchEvent(eventMatch)
     } else {
@@ -62,20 +62,25 @@ function Lista() {
     }
 
   
-  const [state, dispatch] = React.useReducer(exampleReducer, {
+  let [state, dispatch] = React.useReducer(exampleReducer, {
     column: null,
     ndata: data,
     direction: null,
   })
 
 
-  const { column, ndata, direction } = state
+  let { column, ndata, direction } = state
 
+  useEffect(() => {
+    state.ndata=matchEvent
+    state.column=null
+    state.direction=null
+  },[matchEvent])
   
   return(
   <Segment.Group>
     <Segment>
-      <Input placeholder='Entra un filtro' fluid>
+      <Input placeholder='Busca un bache' fluid>
         <input
         ref={searchBox}
         onKeyUp={() => {
@@ -83,8 +88,8 @@ function Lista() {
           setTimeout(() => {
             if (searchQuery === searchBox.current.value.toLowerCase()) {
               userSearch(searchQuery, data)
-            }
-          },300)
+             }
+           })
         }}
         />
     </Input>
@@ -104,14 +109,18 @@ function Lista() {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {matchEvent.map(({name, numIncidents, firstIncident, lastIncident}) => (
-          <Table.Row key={name}>
-            <Table.Cell>{name}</Table.Cell>
-            <Table.Cell>{firstIncident}</Table.Cell>
-            <Table.Cell>{lastIncident}</Table.Cell>
-            <Table.Cell>{numIncidents}</Table.Cell>
+        {console.log(state.ndata)}
+        {ndata.map((pothole, i) => {
+          return (<Table.Row key={i} onClick={() => {
+            setBache(pothole)
+            toast.info("Bache Seleccionado")
+          }}>
+            <Table.Cell>{pothole.name}</Table.Cell>
+            <Table.Cell>{pothole.firstIncident}</Table.Cell>
+            <Table.Cell>{pothole.lastIncident}</Table.Cell>
+            <Table.Cell>{pothole.numIncidents}</Table.Cell>
           </Table.Row>
-        ))}
+         ) })}
       </Table.Body>
     </Table>
     </Segment>

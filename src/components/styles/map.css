@@ -1,7 +1,7 @@
 .search {
   position: absolute;
-  top: 1rem;
-  left: 65%;
+  top: -12rem;
+  left: 75%;
   transform: translate(-50%);
   width: 100%;
   max-width: 400px;
@@ -13,4 +13,12 @@
   font-size: 1rem;
   width: 100%;
   color: black;
+}
+
+.heat-btn {
+  position: absolute;
+  top: 1.5rem;
+  left: 22rem;
+  transform: translate(-50%);
+  z-index: 10;
 }

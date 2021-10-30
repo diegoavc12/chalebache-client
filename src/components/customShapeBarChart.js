@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
 import { scaleOrdinal } from 'd3-scale';
 import { schemeCategory10 } from 'd3-scale-chromatic';
-import { BacheContext } from './bacheContext'
 const colors = scaleOrdinal(schemeCategory10).range();
 
 

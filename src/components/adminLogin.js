@@ -1,8 +1,7 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import './styles/adminLogin.css'
 import axios from 'axios'
 import image from './imgs/logo.png';
-import { Route } from 'react-router'
 import {useHistory} from 'react-router-dom'
 
 const AdminLogin =  () =>  {

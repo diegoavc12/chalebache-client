@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { BacheContext } from './bacheContext'
+import { Grid, Segment} from 'semantic-ui-react'
 import Modal from './modalCRUD'
 import './styles/info.css'
 import './styles/crud.css'
@@ -18,32 +19,37 @@ const elimiBache= async(bache) =>{
 function BacheCRUD() {
     const { bache } = useContext(BacheContext)
     return (
+        <React.Fragment>
+            <Grid.Column>
+                <Segment  color="black">
+                    <h3>Nombre</h3>
+                    <h5>{bache.name}</h5>
+                </Segment>
+            </Grid.Column>
+            <Grid.Column>
+                <Segment color="black">
+                    <h3>Fecha de detección</h3>
+                    <h5>{bache.firstIncident}</h5>
+                </Segment>
+            </Grid.Column>
+            <Grid.Column>
+                <Segment color="black">
+                    <h3>Ultimo incidente</h3>
+                    <h5>{bache.lastIncident}</h5>
+                </Segment>
+            </Grid.Column>
+            <Grid.Column>
+                <Segment color="black">
+                    <h3>Incidentes</h3>
+                    <h5>{bache.numIncidents}</h5>
+                </Segment>
+            </Grid.Column>
+            <Grid.Column>
+                <Modal/>
+            </Grid.Column>
+        </React.Fragment>
 
-                <div className="infoBaches">
-            <div className="card cyan">
-                <h4>Nombre</h4>
-                <p>{bache.name}</p>
-            </div>
-            <br />
-            <div className="card cyan">
-                <h4>Fecha de nacimiento</h4>
-                <p>{bache.firstIncident?.toString().substring(0,10)}</p>
-            </div>
-            <br />
-                <div className="card cyan">
-                <h4>Ultimo incidente</h4>
-                <p>{bache.lastIncident?.toString().substring(0,10)}</p>
-            </div>
-            <br />
-                <div className="card cyan">
-                <h4>Numero de incidentes</h4>
-                <p>{bache.numIncidents}</p>
-            </div>
-                 <div className="bacheCRUD">
-                     <Modal/>
-                    {/* <button id="elimiButton" className="crudButton" onClick={()=>elimiBache(bache)}>Eliminar</button> */}
-                </div>
-            </div>
+
 
         
             // <div className="infoBaches">
