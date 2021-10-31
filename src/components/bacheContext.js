@@ -4,8 +4,15 @@ export const BacheContext = createContext();
 
 export const BacheProvider = ({children})=>{
     const  [bache, setBache] = useState({})
+    const [data, setData] = useState([])
+    const value = {
+        bache, 
+        setBache,
+        data,
+        setData,
+    }
     return (
-        <BacheContext.Provider value={{bache, setBache}}>
+        <BacheContext.Provider value={value}>
             {children}
         </BacheContext.Provider>)
     }

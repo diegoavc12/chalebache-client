@@ -1,8 +1,7 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import './styles/adminLogin.css'
 import axios from 'axios'
 import image from './imgs/logo.png';
-import { Route } from 'react-router'
 import {useHistory} from 'react-router-dom'
 
 const AdminLogin =  () =>  {
@@ -33,7 +32,7 @@ const AdminLogin =  () =>  {
                     <a href="/" id="about">Inicio</a>
                 </div>
                 <div id='formLogin'>
-                    <form className='box'>
+                    <form className='newBox'>
                          <img className="icon" src={image}/>
                         <h1>Inicio de Sesión</h1>
                         <input id="loginI" type="text" name="username" placeholder="USUARIO / CORREO" onChange={inputChange}></input>

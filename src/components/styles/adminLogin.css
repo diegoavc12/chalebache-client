@@ -23,14 +23,14 @@ body {
   width: 10.26rem;
   height: 10.26rem;
   top: -5.125rem;
-  right: 7.125rem;
+  right: 8rem;
   border-radius: 50%;
   /* left: calc(50% -3.125rem); */
 }
 
-.box {
-  width: 20rem;
-  height: 22.25rem;
+.newBox {
+  width: 25rem;
+  height: 28rem;
   padding: 40px;
   position: absolute;
   top: 50%;
@@ -40,15 +40,15 @@ body {
   text-align: center;
 }
 
-.box h1 {
+.newBox h1 {
   margin-top: 50px;
   color: white;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-.box input[type="text"],
-.box input[type="password"] {
+.newBox input[type="text"],
+.newBox input[type="password"] {
   border: 0;
   background: none;
   color: white;
@@ -64,13 +64,13 @@ body {
   transition: 0.7s;
 }
 
-.box input[type="text"]:hover,
-.box input[type="password"]:hover {
+.newBox input[type="text"]:hover,
+.newBox input[type="password"]:hover {
   width: 280px;
   border-color: #a2a7a7;
 }
 
-.box input[type="button"] {
+.newBox input[type="button"] {
   border: 0;
   background: none;
   display: block;
@@ -84,17 +84,17 @@ body {
   transition: 0.75;
 }
 
-.box input[type="button"]:hover {
+.newBox input[type="button"]:hover {
   background-color: #3a3d3d;
 }
 
-.box a {
+.newBox a {
   text-decoration: none;
   font-size: 12px;
   color: white;
 }
 
-.box a:hover {
+.newBox a:hover {
   color: darkgrey;
 }
 

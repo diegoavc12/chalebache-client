@@ -1,32 +1,61 @@
-import React from 'react'
-import { Image, List, Icon } from 'semantic-ui-react'
+import React, {useContext, useEffect, useState} from 'react'
+import { Image, List } from 'semantic-ui-react'
+import { BacheContext } from './bacheContext'
 
-const ListExampleHorizontalOrdered = () => (
+function ListExampleHorizontalOrdered() {
+  const {data} = useContext(BacheContext);
+  const[sorted, setSorted]=useState([])
+
+  const [first, setFirst] = useState([])
+  const [second, setSecond] = useState([])
+  const [third, setThird] = useState([])
+
+  useEffect(() => {
+    const sortedD =  (data.sort((a,b) =>{
+    return a.numIncidents - b.numIncidents
+  }))
+  data.forEach((pothole,i) => {
+    switch (i) {
+      case data.length-1:
+        setFirst(pothole)
+        break;
+      case data.length-2:
+        setSecond(pothole)
+        break;
+      case data.length-3:
+        setThird(pothole)
+        break;
+      default:
+        break;
+    }
+  })
+  },[])
+
+
+  return(
   <List horizontal ordered>
     <List.Item>
-        {/* <List.Icon name="marker"/> */}
-        {/* <Icon name="marker"/> */}
       <Image circular  src={require('./imgs/marker.png').default} />
       <List.Content>
-        <List.Header>Tom</List.Header>
-        Top Contributor
+        <List.Header>{first.name}</List.Header>
+        {first.numIncidents}
       </List.Content>
     </List.Item>
     <List.Item>
       <Image  circular src={require('./imgs/marker.png').default} />
       <List.Content>
-        <List.Header>Christian Rocha</List.Header>
-        Admin
+        <List.Header>{second.name}</List.Header>
+        {second.numIncidents}
       </List.Content>
     </List.Item>
     <List.Item>
       <Image circular src={require('./imgs/marker.png').default} />
       <List.Content>
-        <List.Header>Matt</List.Header>
-        Top Rated User
+        <List.Header>{third.name}</List.Header>
+        {third.numIncidents}
       </List.Content>
     </List.Item>
-  </List>
-)
+  </List>)
+}
 
 export default ListExampleHorizontalOrdered

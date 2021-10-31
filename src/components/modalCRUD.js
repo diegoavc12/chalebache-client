@@ -1,20 +1,39 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { BacheContext } from './bacheContext'
 import { Button, Header, Modal } from 'semantic-ui-react'
- import { ToastContainer, toast } from 'react-toastify';
+ import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
   toast.configure()
+
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
 
 
 function ModalExampleCloseIcon() {
   const [open, setOpen] = React.useState(false)
   const { bache } = useContext(BacheContext)
+  const [enable, setEnable] = React.useState(true)
 
   const notification = () => {
     toast.success("Bache eliminado")
    
   }
+
+  useEffect(() => {
+    console.log(bache)
+    if (isEmpty(bache)) {
+      setEnable(true)
+    } else {
+      setEnable(false)
+    }
+  },[bache])
 
 
   return (
@@ -22,7 +41,7 @@ function ModalExampleCloseIcon() {
       <Modal
         closeIcon
         open={open}
-        trigger={<Button negative fluid onClick={() => {
+        trigger={<Button disabled={enable}fluid size='large' floated ="left" negative  onClick={() => {
           if (bache.name === undefined) {
              toast.info("Por favor selecciona un bache a eliminar")
           } else {

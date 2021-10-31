@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
 import { scaleOrdinal } from 'd3-scale';
 import { schemeCategory10 } from 'd3-scale-chromatic';
-
 const colors = scaleOrdinal(schemeCategory10).range();
+
+
 
 const getPath = (x, y, width, height) => `M${x},${y + height}
           C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3} ${x + width / 2}, ${y}
@@ -32,16 +33,14 @@ export default class Example extends PureComponent {
 
  componentDidMount() {
      this.getDataAPI()
-     console.log("Datos obtenidos")
  }
 
 async getDataAPI() {
      const data = await fetch("http://129.146.169.60:1441/api/potholes")
      const potholes = await data.json()
-     console.log(potholes)
      this.data=potholes
      this.setState({ data: potholes  })
-     console.log(this.data)
+
 }
 
 

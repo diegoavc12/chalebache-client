@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import Searchbar from './searchbar';
-import Test from './test';
 import image from './imgs/logo.png';
-import AdminButton from './logoffButton';
 import './styles/navbar.css'
 
 export default class navbar extends Component {
@@ -13,7 +10,7 @@ export default class navbar extends Component {
                     <img className="" src={image}/>
                     <h2>ChaleBache</h2>
                     <a className="active" href="/">Log Out</a>
-                     <Searchbar className="searchBar" ></Searchbar>
+                     {/* <Searchbar className="searchBar" ></Searchbar> */}
                     {/* <input type="text" placeholder="Search.."/> */}
                 </div>
                 
