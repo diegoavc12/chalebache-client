@@ -4,8 +4,6 @@ import { BacheContext } from './bacheContext'
 
 function ListExampleHorizontalOrdered() {
   const {data} = useContext(BacheContext);
-  const[sorted, setSorted]=useState([])
-
   const [first, setFirst] = useState([])
   const [second, setSecond] = useState([])
   const [third, setThird] = useState([])

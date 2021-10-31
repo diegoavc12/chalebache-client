@@ -85,11 +85,13 @@ function Lista() {
         ref={searchBox}
         onKeyUp={() => {
           let searchQuery = searchBox.current.value.toLowerCase()
-          setTimeout(() => {
-            if (searchQuery === searchBox.current.value.toLowerCase()) {
-              userSearch(searchQuery, data)
-             }
-           })
+          // setTimeout(() => {
+          //   if (searchQuery === searchBox.current.value.toLowerCase()) {
+          //     userSearch(searchQuery, data)
+          //    }
+          //  })
+          userSearch(searchQuery, data)
+           console.log(searchQuery)
         }}
         />
     </Input>
