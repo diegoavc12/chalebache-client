@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Grid, Menu, Segment } from 'semantic-ui-react'
 import LineChart from './customShapeBarChart';
 import PieChart from './pieChart'
+import AreaChart from './customStackedAreaChart'
 // import LineChart from './lineChart';
 
 export default class MenuExampleTabularOnLeft extends Component {
@@ -22,13 +23,13 @@ export default class MenuExampleTabularOnLeft extends Component {
       this.setState({ activeItem: name  })
       switch (name) {
       case "top":
-        this.setState({ showHideDemo1: true, showHideDemo2: false });
+        this.setState({ showHideDemo1: true, showHideDemo2: false, showHideDemo3:false});
         break;
       case "Categories":
-        this.setState({ showHideDemo1: false, showHideDemo2: true });
+        this.setState({ showHideDemo1: false, showHideDemo2: true, showHideDemo3:false});
         break;
       case "companies":
-        this.setState({ showHideDemo1: false, showHideDemo2: false });
+        this.setState({ showHideDemo1: false, showHideDemo2: false, showHideDemo3:true });
         break;
     }
     }
@@ -68,6 +69,8 @@ export default class MenuExampleTabularOnLeft extends Component {
            <Segment  >
              { showHideDemo2 && <PieChart/>}
              { showHideDemo1 && <LineChart/>}
+             { showHideDemo3 && <AreaChart/>}
+
            </Segment>
         </Grid.Column>
       </Grid>
