@@ -25,10 +25,10 @@ export default class MenuExampleTabularOnLeft extends Component {
       case "top":
         this.setState({ showHideDemo1: true, showHideDemo2: false, showHideDemo3:false});
         break;
-      case "Categories":
+      case "Classification":
         this.setState({ showHideDemo1: false, showHideDemo2: true, showHideDemo3:false});
         break;
-      case "companies":
+      case "Date":
         this.setState({ showHideDemo1: false, showHideDemo2: false, showHideDemo3:true });
         break;
     }
@@ -47,18 +47,13 @@ export default class MenuExampleTabularOnLeft extends Component {
               onClick={this.handleItemClick}
             />
             <Menu.Item
-              name='Categories'
-              active={activeItem === 'Categories'}
+              name='Classification'
+              active={activeItem === 'Classification'}
               onClick={this.handleItemClick}
             />
             <Menu.Item
-              name='companies'
-              active={activeItem === 'companies'}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              name='links'
-              active={activeItem === 'links'}
+              name='Date'
+              active={activeItem === 'Date'}
               onClick={this.handleItemClick}
             />
           </Menu>
