@@ -117,7 +117,7 @@ function Lista() {
             setBache(pothole)
             toast.info("Bache Seleccionado")
           }}>
-            <Table.Cell>{pothole.name}</Table.Cell>
+            <Table.Cell>{pothole.id}</Table.Cell>
             <Table.Cell>{pothole.firstIncident}</Table.Cell>
             <Table.Cell>{pothole.lastIncident}</Table.Cell>
             <Table.Cell>{pothole.numIncidents}</Table.Cell>

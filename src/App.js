@@ -13,7 +13,7 @@ function App() {
    useEffect(() => {
   const fetchEvents = async () => {
     setLoading(true);
-    const rawData = await fetch("http://129.146.169.60:1441/api/potholes");
+    const rawData = await fetch("https://chalebache-json-server.herokuapp.com/potholes");
     const info = await rawData.json()
     setData(info);
     setLoading(false);

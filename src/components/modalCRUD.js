@@ -3,7 +3,7 @@ import { BacheContext } from './bacheContext'
 import { Button, Header, Modal } from 'semantic-ui-react'
  import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
-
+import axios from 'axios'
   toast.configure()
 
 function isEmpty(obj) {
@@ -12,6 +12,17 @@ function isEmpty(obj) {
             return false;
     }
     return true;
+}
+
+const elimiBache= async(bache) =>{
+    try {
+        console.log(bache)
+        const API_CRUD="https://chalebache-json-server.herokuapp.com"
+        //const respOld = await axios.delete(`${API_CRUD}/potholes/${bache._id}`)
+        const resp = await axios.delete(`${API_CRUD}/potholes/${bache.id}`)
+    } catch (error) {
+        
+    }
 }
 
 
@@ -42,7 +53,7 @@ function ModalExampleCloseIcon() {
         closeIcon
         open={open}
         trigger={<Button disabled={enable}fluid size='large' floated ="left" negative  onClick={() => {
-          if (bache.name === undefined) {
+          if (bache === undefined) {
              toast.info("Por favor selecciona un bache a eliminar")
           } else {
             setOpen(true)
@@ -57,6 +68,7 @@ function ModalExampleCloseIcon() {
         <Modal.Content>
           <p>
             {bache.name}
+            {bache.id}
             {/* {<SemanticToastContainer position="top-right" />} */}
           </p>
         </Modal.Content>
@@ -67,6 +79,7 @@ function ModalExampleCloseIcon() {
             No
           </Button>
           <Button color='green' onClick={() => {
+            elimiBache(bache)
             setOpen(false)
             console.log("Bache eliminado")
             notification()
