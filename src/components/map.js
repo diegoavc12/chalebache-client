@@ -46,7 +46,7 @@ function GoogleMaps() {
   const { isLoaded, loadError } = useLoadScript ({
     id: 'google-map-script',
     //AIzaSyCFqy0zNs8gFSwaK7SHiOas2DpSfvxJAHg
-    googleMapsApiKey: "AIzaSyCFqy0zNs8gFSwaK7SHiOas2DpSfvxJAHg",
+    googleMapsApiKey: "AIzaSyCbIZvNMFR73dZngkTGFzX-PPmnXcnZ704",
     libraries,
   })
 
