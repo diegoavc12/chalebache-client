@@ -35,21 +35,21 @@ function ListExampleHorizontalOrdered() {
     <List.Item>
       <Image circular  src={require('./imgs/marker.png').default} />
       <List.Content>
-        <List.Header>{first.name}</List.Header>
+        <List.Header>{first.id}</List.Header>
         {first.numIncidents}
       </List.Content>
     </List.Item>
     <List.Item>
       <Image  circular src={require('./imgs/marker.png').default} />
       <List.Content>
-        <List.Header>{second.name}</List.Header>
+        <List.Header>{second.id}</List.Header>
         {second.numIncidents}
       </List.Content>
     </List.Item>
     <List.Item>
       <Image circular src={require('./imgs/marker.png').default} />
       <List.Content>
-        <List.Header>{third.name}</List.Header>
+        <List.Header>{third.id}</List.Header>
         {third.numIncidents}
       </List.Content>
     </List.Item>

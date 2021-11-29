@@ -1,10 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { BacheContext } from './bacheContext'
 import { Grid, Segment} from 'semantic-ui-react'
+import {formatRelative, parseISO, parseJSON, toDate, format   } from "date-fns"
 import './styles/info.css'
 
 function BacheInfo () {
     const { bache } = useContext(BacheContext)
+    const [selected, setSelected] = useState(bache.firstIncident)
     return (
         <React.Fragment>
             <Grid.Column>

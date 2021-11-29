@@ -174,7 +174,7 @@ const onUnmountHeat = heatmapLayer => {
       }}>
         <div>
           <h2>Banche encontrado</h2>
-          <p>Dia: {formatRelative(parseISO(selected.createdAt), new Date())}</p>
+          <p>{formatRelative(parseISO(selected.createdAt), new Date())}</p>
         </div>
       </InfoWindow>):null}
       </GoogleMap>
