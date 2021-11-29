@@ -28,6 +28,7 @@ function GoogleMaps() {
   const  [zoom, setZoom] = useState(8)
   const mapRef = React.useRef()
 
+
     const mapOptions = {
     zoom: zoom,
     center: { lat: lat, lng: lng},
@@ -134,7 +135,8 @@ const onUnmountHeat = heatmapLayer => {
 
       >
         {data.map((pothole,i) => {
-          return (<Marker
+          if (pothole.type === 'Automatic') {
+                      return (<Marker
                     key={i}
                     onClick={() => {
                      setSelected(pothole)
@@ -142,11 +144,27 @@ const onUnmountHeat = heatmapLayer => {
                     }}
                     position={{lat: pothole.lat, lng: pothole.lng}}
                     icon ={{
-                      url:require('./imgs/chale2.png').default,
+                      url:require("./imgs/chale3.png").default,
                       scaledSize: new window.google.maps.Size(30,30),
                     }}
                     visible={!show}
                   />)
+          } else {
+                    return (<Marker
+                    key={i}
+                    onClick={() => {
+                     setSelected(pothole)
+                     changeBache(pothole)
+                    }}
+                    position={{lat: pothole.lat, lng: pothole.lng}}
+                    icon ={{
+                      url:require("./imgs/chale2.png").default,
+                      scaledSize: new window.google.maps.Size(30,30),
+                    }}
+                    visible={!show}
+                  />)
+          }
+
         })}
 
         {show && <HeatmapLayer onLoad={onLoadHeat} onUnmount={onUnmountHeat}   data={heatMapData}  options={heatMapOptions}/>}
