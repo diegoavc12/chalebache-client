@@ -14,8 +14,8 @@ function BacheCRUD() {
         <React.Fragment>
             <Grid.Column>
                 <Segment  color="black">
-                    <h3>Nombre</h3>
-                    <h5>{bache.name}</h5>
+                    <h3>Id</h3>
+                    <h5>{bache.id}</h5>
                 </Segment>
             </Grid.Column>
             <Grid.Column>

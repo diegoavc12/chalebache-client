@@ -36,7 +36,7 @@ export default class Example extends PureComponent {
  }
 
 async getDataAPI() {
-     const data = await fetch("http://129.146.169.60:1441/api/potholes")
+     const data = await fetch("https://chalebache-json-server.herokuapp.com/potholes")
      const potholes = await data.json()
      this.data=potholes
      this.setState({ data: potholes  })
@@ -59,7 +59,7 @@ async getDataAPI() {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="id" />
           <YAxis />
           <Bar dataKey="numIncidents" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
             {/* {data.map((entry, index) => (

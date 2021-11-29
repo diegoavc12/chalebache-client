@@ -37,8 +37,14 @@ function Lista() {
     let eventMatch = []
 
     if (searchQuery.length > 0 && potholes) {
+      let  potholeTitle;
       for(const pothole in potholes) {
-        let  potholeTitle = potholes[pothole].name.toLowerCase();
+        if (potholes[pothole]._id===undefined || potholes[pothole]._id===null) {
+           potholeTitle = potholes[pothole].id.toLowerCase();
+        } else  if (potholes[pothole].id===undefined || potholes[pothole].id===null) {
+           //console.log(potholes[pothole]._id.toLowerCase());          
+           potholeTitle = potholes[pothole]._id.toLowerCase();
+        }
         let  potholefirstIncident = potholes[pothole].firstIncident.toLowerCase();
         let  potholeLastIncident = potholes[pothole].lastIncident.toLowerCase();
         let  potholenumIncident = potholes[pothole].numIncidents.toString();
@@ -100,10 +106,10 @@ function Lista() {
     <Table color="black" selectable sortable celled fixed>
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell sorted={column === 'name' ? direction : null}
+          <Table.HeaderCell sorted={column === 'id' ? direction : null}
             onClick={() => {
-              dispatch({ type: 'CHANGE_SORT', column: 'name' })
-            }}>Nombre</Table.HeaderCell>
+              dispatch({ type: 'CHANGE_SORT', column: 'id' })
+            }}>Id</Table.HeaderCell>
           <Table.HeaderCell>Fecha de deteccion</Table.HeaderCell>
           <Table.HeaderCell>Ultimo incidente</Table.HeaderCell>
           <Table.HeaderCell sorted={column === 'numIncidents' ? direction : null}
