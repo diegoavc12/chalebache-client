@@ -38,7 +38,7 @@ const AdminLogin =  () =>  {
                         <input id="loginI" type="text" name="username" placeholder="USUARIO / CORREO" onChange={inputChange}></input>
                         <input id="loginI" type="password" name="password" placeholder="CONTRASEÑA" onChange={inputChange}></input>
                         <input type="button" name="" value="Iniciar" onClick={sendLogin}></input>
-                        <a href="#">Forgot your password?</a><br />
+                        {/* <a href="#">Forgot your password?</a><br /> */}
                         {/* <a href="#">Create an account</a> */}
                     </form>
                 
