@@ -73,9 +73,10 @@ body {
 .newBox input[type="button"] {
   border: 0;
   background: none;
-  display: block;
-  margin: 20px auto;
+  display: inline-block;
+  margin-left: 5px;
   text-align: center;
+  font-size: 0.98vw;
   border: 2px solid #a2a7a7;
   padding: 14px 40px;
   outline: none;

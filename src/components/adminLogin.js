@@ -28,9 +28,9 @@ const AdminLogin =  () =>  {
         return (
             <div >
                 <div className='loginApp'></div>
-                <div id="mySidenav" class="sidenav">
+                {/*<div id="mySidenav" class="sidenav">
                     <a href="/" id="about">Inicio</a>
-                </div>
+                </div>*/}
                 <div id='formLogin'>
                     <form className='newBox'>
                          <img className="icon" src={image}/>
@@ -38,6 +38,9 @@ const AdminLogin =  () =>  {
                         <input id="loginI" type="text" name="username" placeholder="USUARIO / CORREO" onChange={inputChange}></input>
                         <input id="loginI" type="password" name="password" placeholder="CONTRASEÑA" onChange={inputChange}></input>
                         <input type="button" name="" value="Iniciar" onClick={sendLogin}></input>
+                        <a href="/" >
+                            <input type="button" name="" value="Regresar"></input>
+                        </a>
                         {/* <a href="#">Forgot your password?</a><br /> */}
                         {/* <a href="#">Create an account</a> */}
                     </form>
