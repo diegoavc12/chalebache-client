@@ -25,13 +25,14 @@
     "recharts": "^2.1.4",
     "rxjs": "^7.1.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.4",
+    "semantic-ui-react": "^2.1.2",
+    "styled-components": "^5.3.5",
     "use-places-autocomplete": "^1.10.0",
     "web-vitals": "^1.1.1",
     "yarn": "^1.22.15"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -53,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-icons": "^4.3.1"
   }
 }

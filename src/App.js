@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import React, {useContext, useState, useEffect} from 'react'
 import { BacheContext } from './components/bacheContext'
 
-
 function App() {
   const {setData} = useContext(BacheContext)
   const [loading, setLoading] = useState(false);
@@ -19,7 +18,7 @@ function App() {
     setLoading(false);
   }
   fetchEvents();
-  },[])
+   }, [])
   return (
     <div className="App">
         {!loading && <Router>
@@ -34,9 +33,12 @@ function App() {
               {/* {!loading && <MainAdminCRUD/>} */}
               <MainAdminCRUD/>
             </Route>
+         {/*<Route exact path='/tutorial'>
+              <Tutorial/>
+            </Route>*/}
           </Switch>
-        </Router>}
-    </div>
+		 </Router>}
+      </div>
   );
 }
 

@@ -1,21 +1,57 @@
-#adminButtonsito {
-  font-size: 15px;
-  justify-content: "end";
-  align-self: "center";
-  height: 5vh;
-  border-radius: 5px;
-  background-color: #3a3d3d;
-  box-shadow: 5px 10px;
-  color: #a2a7a7;
-  border: none;
-
-  margin-right: 3vh;
+#adminButton {
+    position: relative;
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 17px;
+    max-width: 320px;
+    height: 5.5vH;
+    overflow: hidden;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    text-decoration: none;
+    transition: all ease 0.5s;
+    background: black;
 }
 
-#adminButtonsito:hover {
-  cursor: pointer;
-}
+    #adminButton:after,
+    #adminButton:before {
+        width: 80px;
+        height: 200px;
+        content: '';
+        display: block;
+        background: rgba(255,255,255,0.5);
+        transform: rotate(45deg);
+        top: -60px;
+        position: absolute;
+        transition: none;
+        right: -45%;
+        cursor: pointer;
+    }
 
-#adminButtonsito:active {
-  transform: translateY(1px);
-}
+    #adminButton:before {
+        left: -48%;
+    }
+
+    #adminButton:hover {
+        background: white;
+        color: black;
+    }
+
+        #adminButton:hover:after,
+        #adminButton:hover:before {
+            transform: rotate(45deg), scaleX(130%);
+            background: rgba(255,255,255,0.1);
+            transition: all ease 0.5s;
+        }
+
+        #adminButton:hover:after {
+            right: 130%;
+        }
+
+        #adminButton:hover:before {
+            left: 130%;
+        }

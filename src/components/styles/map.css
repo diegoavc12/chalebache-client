@@ -1,24 +1,39 @@
 .search {
-  position: absolute;
-  top: -12rem;
-  left: 75%;
-  transform: translate(-50%);
-  width: 100%;
-  max-width: 400px;
-  z-index: 10;
+    position: absolute;
+    top: -2.5rem;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    max-width: 470px;
+    z-index: 10;
 }
 
-.search input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  width: 100%;
-  color: black;
-}
+    .search input {
+        padding: 0.5rem;
+        font-size: 1.1rem;
+        width: 100%;
+        color: black;
+        border-radius: 20px;
+    }
 
 .heat-btn {
-  position: absolute;
-  top: 1.5rem;
-  left: 22rem;
-  transform: translate(-50%);
-  z-index: 10;
+    position: absolute;
+    top: 2.5rem;
+    left: 19%;
+    transform: translate(-50%);
+    z-index: 10;
+}
+
+#infoModal {
+    font-size: 14px;
+    font-family: Bahnschrift;
+    color: black;
+}
+
+#svg {
+    position: absolute;
+    margin-top: 4px;
+    left: 63%;
+    transform: translate(-50%);
+    z-index: 10;
 }

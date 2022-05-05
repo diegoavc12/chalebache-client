@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
 import './styles/footer.css'
+import React, { Component } from 'react';
 
-export default class navbar extends Component {
+export default class Footer extends Component {
     render() {
         return (
-            <div>
-                <div className="footer">
-                        <p>Footer</p>
-                </div>
+            <div className="footer">
+                <h2>Semestre i</h2>
+                <p>Equipo 02</p>
             </div>
         );
     }

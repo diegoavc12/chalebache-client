@@ -10,10 +10,7 @@ export default class navbar extends Component {
                     <img className="" src={image}/>
                     <h2>ChaleBache</h2>
                     <a className="active" href="/">Log Out</a>
-                     {/* <Searchbar className="searchBar" ></Searchbar> */}
-                    {/* <input type="text" placeholder="Search.."/> */}
                 </div>
-                
             </div>
         );
     }

@@ -1,0 +1,109 @@
+#tutorialButton {
+    position: relative;
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 17px;
+    max-width: 320px;
+    height: 5.5vH;
+    overflow: hidden;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    text-decoration: none;
+    transition: all ease 0.5s;
+    background: black;
+}
+
+    #tutorialButton:after,
+    #tutorialButton:before {
+        width: 80px;
+        height: 200px;
+        content: '';
+        display: block;
+        background: rgba(255,255,255,0.5);
+        transform: rotate(45deg);
+        top: -60px;
+        position: absolute;
+        transition: none;
+        right: -45%;
+        cursor: pointer;
+    }
+
+    #tutorialButton:before {
+        left: -48%;
+    }
+
+    #tutorialButton:hover {
+        background: white;
+        color: black;
+    }
+
+        #tutorialButton:hover:after,
+        #tutorialButton:hover:before {
+            transform: rotate(45deg), scaleX(130%);
+            background: rgba(255,255,255,0.1);
+            transition: all ease 0.5s;
+        }
+
+        #tutorialButton:hover:after {
+            right: 130%;
+        }
+
+        #tutorialButton:hover:before {
+            left: 130%;
+        }
+
+#modalTuto {
+    width: 650px;
+    min-height: 100px;
+    background: #ffff;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+    padding: 10px;
+}
+
+#modalHeader {
+    display: flex;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 40px;
+    color: black;
+}
+
+#modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+li {
+    margin-top: 30px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+}
+
+#modalCerrar {
+    position: absolute;
+    background: #000;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    border-radius: 5px;
+    color: #1766DC;
+}

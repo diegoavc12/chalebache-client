@@ -13,7 +13,7 @@ export default function MainAdminCRUD() {
             <div>
                 <Navbar/>
                 <br />
-                <Grid columns="equal">
+                <Grid padded>
                     <Grid.Row>
                         <BacheCRUD/>
                     </Grid.Row>
