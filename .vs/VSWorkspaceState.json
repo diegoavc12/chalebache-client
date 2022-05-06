@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components"
+    "\\src\\components",
+    "\\src\\components\\imgs",
+    "\\src\\components\\styles"
   ],
-  "SelectedNode": "\\src\\App.js",
+  "SelectedNode": "\\src\\components\\adminLogin.js",
   "PreviewInSolutionExplorer": false
 }

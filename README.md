@@ -67,6 +67,7 @@ To get a local copy up and running follow these simple example steps.
 2. Install NPM packages
    ```sh
    npm install
+   npm install react-player --save
    ```
 
 ### Ho to run
