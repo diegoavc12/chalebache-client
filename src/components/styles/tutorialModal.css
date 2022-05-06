@@ -82,28 +82,12 @@
 }
 
 li {
-    margin-top: 30px;
+    margin-top: 10px;
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-video {
+#videoTuto {
     width: 100%;
     height: 100%;
-    margin-top: 50px;
-}
-
-#modalCerrar {
-    position: absolute;
-    background: #000;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    transition: 0.3s ease all;
-    border-radius: 5px;
-    color: #1766DC;
 }
