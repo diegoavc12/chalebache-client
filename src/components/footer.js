@@ -1,12 +1,12 @@
 import './styles/footer.css'
 import React, { Component } from 'react';
+import image from './imgs/TecMo.png';
 
 export default class Footer extends Component {
     render() {
         return (
             <div className="footer">
-                <h2>Semestre i</h2>
-                <p>Equipo 02</p>
+                <img src={image} />
             </div>
         );
     }

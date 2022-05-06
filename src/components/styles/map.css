@@ -16,6 +16,13 @@
         border-radius: 20px;
     }
 
+    .search svg {
+        position: absolute;
+        margin-top: 10px;
+        left: 95%;
+        transform: translate(-50%);
+    }
+
 .heat-btn {
     position: absolute;
     top: 2.5rem;
@@ -30,10 +37,21 @@
     color: black;
 }
 
-#svg {
-    position: absolute;
-    margin-top: 4px;
-    left: 63%;
-    transform: translate(-50%);
-    z-index: 10;
+#searchButton {
+    position: relative;
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 17px;
+    max-width: 320px;
+    height: 5.5vH;
+    overflow: hidden;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    text-decoration: none;
+    transition: all ease 0.5s;
+    background: black;
 }
