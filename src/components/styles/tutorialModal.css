@@ -72,6 +72,7 @@
     font-weight: bolder;
     font-size: 40px;
     color: black;
+    font-family: Bahnschrift;
 }
 
 #modalContent {
@@ -81,10 +82,15 @@
     margin-top: 20px;
 }
 
+h3 {
+    font-family: Bahnschrift;
+}
+
 li {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 18.2px;
     margin-bottom: 20px;
+    font-family: Bahnschrift;
 }
 
 #videoTuto {

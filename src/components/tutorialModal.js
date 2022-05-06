@@ -27,7 +27,8 @@ const TutorialModal = () => {
                             Para encontrar una direccion especifica, escribela en el buscador y da "enter" para iniciar la busqueda.
                         </li>
                         <li>
-                            Para acceder al apartado de Administrador, da click sobre el boton "Admin", de esta manera obtendras mas funcionalidades.
+                            Para acceder al apartado de Administrador, da click sobre "Admin".
+                            <br /><i>(Para mas instrucciones de este apartado, ve el video anexado)</i>
                         </li>
                         <li>
                             Para cerrar el Tutorial, da click sobre la "X" o en cualquier parte externa al Tutorial.
