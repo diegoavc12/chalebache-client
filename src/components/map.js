@@ -194,7 +194,7 @@ function Search({ panTo }) {
             setValue(address, false);
             clearSuggestions();
             try {
-                const results = getGeocode({ address });
+                const results = await getGeocode({ address });
                 const { lat, lng } = await getLatLng(results[0]);
                 console.log("📍 Coordinates: ", { lat, lng });
                 panTo({ lat, lng });
