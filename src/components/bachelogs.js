@@ -1,19 +1,17 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { BacheContext } from './bacheContext'
-import { Grid, Segment} from 'semantic-ui-react'
-import Modal from './modalCRUD'
-import './styles/info.css'
-import './styles/crud.css'
-import axios from 'axios'
-
-
+import React, { useContext, useState, useEffect } from 'react';
+import { BacheContext } from './bacheContext';
+import { Grid, Segment } from 'semantic-ui-react';
+import Modal from './modalCRUD';
+import './styles/info.css';
+import './styles/crud.css';
+import axios from 'axios';
 
 function BacheCRUD() {
     const { bache } = useContext(BacheContext)
     return (
         <React.Fragment>
             <Grid.Column>
-                <Segment  color="black">
+                <Segment color="black">
                     <h3>Id</h3>
                     <h5>{bache.id}</h5>
                 </Segment>
@@ -37,7 +35,7 @@ function BacheCRUD() {
                 </Segment>
             </Grid.Column>
             <Grid.Column>
-                <Modal/>
+                <Modal />
             </Grid.Column>
         </React.Fragment>
     )

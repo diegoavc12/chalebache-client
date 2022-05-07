@@ -1,13 +1,13 @@
 .testHeader {
-  background: #a2a7a7;
-  /* height: 10vh; */
+    background: #a2a7a7;
+    /* height: 10vh; */
 
-  line-height: 10vh;
+    line-height: 10vh;
 }
 
 #titulo {
-  text-align: center;
-  font-family: Krone;
-  color: white;
-  font-size: 40px;
+    text-align: center;
+    font-family: Krone;
+    color: white;
+    font-size: 40px;
 }

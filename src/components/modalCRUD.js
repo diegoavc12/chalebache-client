@@ -29,12 +29,10 @@ function ModalExampleCloseIcon() {
     const [open, setOpen] = React.useState(false)
     const { bache } = useContext(BacheContext)
     const [enable, setEnable] = React.useState(true)
-
     const notification = () => {
         toast.success("Bache eliminado")
 
     }
-
     useEffect(() => {
         console.log(bache)
         if (isEmpty(bache)) {
@@ -43,7 +41,6 @@ function ModalExampleCloseIcon() {
             setEnable(false)
         }
     }, [bache])
-
     return (
         <div>
             <Modal

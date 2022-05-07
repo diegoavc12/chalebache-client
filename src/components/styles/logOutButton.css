@@ -1,4 +1,4 @@
-#adminButton {
+#logOutButton {
     position: relative;
     display: block;
     border-radius: 6px;
@@ -17,8 +17,8 @@
     background: black;
 }
 
-    #adminButton:after,
-    #adminButton:before {
+    #logOutButton:after,
+    #logOutButton:before {
         width: 80px;
         height: 200px;
         content: '';
@@ -32,26 +32,26 @@
         cursor: pointer;
     }
 
-    #adminButton:before {
+    #logOutButton:before {
         left: -48%;
     }
 
-    #adminButton:hover {
+    #logOutButton:hover {
         background: white;
         color: black;
     }
 
-        #adminButton:hover:after,
-        #adminButton:hover:before {
+        #logOutButton:hover:after,
+        #logOutButton:hover:before {
             transform: rotate(45deg), scaleX(130%);
             background: rgba(255,255,255,0.1);
             transition: all ease 0.5s;
         }
 
-        #adminButton:hover:after {
+        #logOutButton:hover:after {
             right: 130%;
         }
 
-        #adminButton:hover:before {
+        #logOutButton:hover:before {
             left: 130%;
         }

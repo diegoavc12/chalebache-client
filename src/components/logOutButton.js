@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './styles/adminButton.css';
+import './styles/logOutButton.css';
 import { Button } from 'semantic-ui-react';
 
-export default class AdminButton extends Component {
+export default class LogOutButton extends Component {
     render() {
         return (
             <div>
-                <Button id='adminButton'>Admin</Button>
+                <Button id="logOutButton">Cerrar Sesión</Button>
             </div>
         )
     }

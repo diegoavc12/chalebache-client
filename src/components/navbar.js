@@ -25,5 +25,4 @@ export default class navbar extends Component {
             </div>
         );
     }
-
 }

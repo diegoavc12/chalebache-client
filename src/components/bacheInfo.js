@@ -1,16 +1,16 @@
-import React, { useContext, useState } from 'react'
-import { BacheContext } from './bacheContext'
-import { Grid, Segment} from 'semantic-ui-react'
-import {formatRelative, parseISO, parseJSON, toDate, format   } from "date-fns"
-import './styles/info.css'
+import React, { useContext, useState } from 'react';
+import { BacheContext } from './bacheContext';
+import { Grid, Segment } from 'semantic-ui-react';
+import { formatRelative, parseISO, parseJSON, toDate, format } from "date-fns";
+import './styles/info.css';
 
-function BacheInfo () {
+function BacheInfo() {
     const { bache } = useContext(BacheContext)
     const [selected, setSelected] = useState(bache.firstIncident)
     return (
         <React.Fragment>
             <Grid.Column>
-                <Segment  color="black">
+                <Segment color="black">
                     <h3>Id</h3>
                     <h5>{bache.id}</h5>
                 </Segment>
@@ -33,7 +33,7 @@ function BacheInfo () {
                     <h5>{bache.numIncidents}</h5>
                 </Segment>
             </Grid.Column>
-        </React.Fragment>    
+        </React.Fragment>
     )
 }
 

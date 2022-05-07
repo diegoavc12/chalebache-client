@@ -4,7 +4,7 @@
     background-color: black;
 }
 
-    /* Style the links inside the navigation bar */
+/* Style the links inside the navigation bar */
 
 #navbarButtons {
     float: right;
@@ -17,11 +17,13 @@
   background-color: #ddd;
   color: black;
 }*/
+
 /* Style the "active" element to highlight the current page 
 .topnav a.active {
   background-color: #3a3d3d;
   color: white;
 }*/
+
 /* Style the search box inside the navigation bar */
 .topnav input[type="text"] {
     float: right;

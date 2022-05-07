@@ -3,9 +3,8 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\imgs",
     "\\src\\components\\styles"
   ],
-  "SelectedNode": "\\src\\components\\adminLogin.js",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }

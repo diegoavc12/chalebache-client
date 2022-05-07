@@ -27,7 +27,6 @@ function GoogleMaps() {
     const [zoom, setZoom] = useState(8)
     const mapRef = React.useRef()
 
-
     const mapOptions = {
         zoom: zoom,
         center: { lat: lat, lng: lng },
@@ -77,6 +76,7 @@ function GoogleMaps() {
     const onUnmountHeat = heatmapLayer => {
         console.log('HeatmapLayer onUnmount heatmapLayer: ', heatmapLayer)
     }
+
     const changeBache = (obj) => {
         setBache(obj)
         setLat(obj.lat)
@@ -119,11 +119,10 @@ function GoogleMaps() {
     return isLoaded ? (
         <div>
             <Button.Group className="heat-btn">
-                <Button toggle primary active={show} onClick={tooggleHeatMap} size="large" >Superficie</Button>
+                <Button toggle primary active={show} onClick={tooggleHeatMap} size="large" >Térmico</Button>
                 <Button.Or />
                 <Button primary onClick={resetMap} size="large">Reiniciar</Button>
             </Button.Group>
-
             <Search panTo={panTo} />
             <GoogleMap
                 onLoad={onLoad}
@@ -131,7 +130,6 @@ function GoogleMaps() {
                 center={mapOptions.center}
                 zoom={mapOptions.zoom}
                 onUnmount={onUnmount}
-
             >
                 {data.map((pothole, i) => {
                     if (pothole.type === 'Automatic') {
@@ -163,11 +161,8 @@ function GoogleMaps() {
                             visible={!show}
                         />)
                     }
-
                 })}
-
                 {show && <HeatmapLayer onLoad={onLoadHeat} onUnmount={onUnmountHeat} data={heatMapData} options={heatMapOptions} />}
-
                 {selected ? (<InfoWindow position={{ lat: selected.lat, lng: selected.lng }} onCloseClick={() => {
                     setSelected(null);
                 }}>
@@ -191,13 +186,12 @@ function Search({ panTo }) {
             radius: 200 * 1000,
         },
     })
-
     return (<div className="search">
         <svg id='svg' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
         </svg>
         <Combobox onSelect={async (description) => {
-            setValue(address,false);
+            setValue(address, false);
             clearSuggestions();
             try {
                 const results = getGeocode({ address });
@@ -217,9 +211,9 @@ function Search({ panTo }) {
             <ComboboxPopover>
                 <ComboboxList>
                     {status === "OK" &&
-                    data.map(({ place_id, description }) => (
-                    <ComboboxOption key={place_id} value={description} />
-                    ))}
+                        data.map(({ place_id, description }) => (
+                            <ComboboxOption key={place_id} value={description} />
+                        ))}
                 </ComboboxList>
             </ComboboxPopover>
         </Combobox>

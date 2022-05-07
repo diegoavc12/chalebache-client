@@ -1,4 +1,4 @@
-import './styles/footer.css'
+import './styles/footer.css';
 import React, { Component } from 'react';
 import image from './imgs/TecMo.png';
 
@@ -10,5 +10,4 @@ export default class Footer extends Component {
             </div>
         );
     }
-
 }

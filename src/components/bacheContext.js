@@ -1,12 +1,12 @@
-import React,{createContext, useState} from 'react';
+import React, { createContext, useState } from 'react';
 
 export const BacheContext = createContext();
 
-export const BacheProvider = ({children})=>{
-    const  [bache, setBache] = useState({})
+export const BacheProvider = ({ children }) => {
+    const [bache, setBache] = useState({})
     const [data, setData] = useState([])
     const value = {
-        bache, 
+        bache,
         setBache,
         data,
         setData,
@@ -15,4 +15,4 @@ export const BacheProvider = ({children})=>{
         <BacheContext.Provider value={value}>
             {children}
         </BacheContext.Provider>)
-    }
+}

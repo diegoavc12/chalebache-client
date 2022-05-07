@@ -1,6 +1,6 @@
 import Map from './map';
 import Navbar from './navbar';
-import { Grid, Icon, Button } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import './styles/map.css';
 import Footer from './footer';
 

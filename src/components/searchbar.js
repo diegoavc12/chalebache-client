@@ -20,7 +20,6 @@ export default function App(props) {
         props.center(latLng)
     };
 
-
     function modifyValues() {
         if (coordinates.lat != null) {
             var locValues = {
@@ -30,7 +29,6 @@ export default function App(props) {
         }
         console.log(locValues)
     }
-
     return (
         <div>
             <PlacesAutocomplete
