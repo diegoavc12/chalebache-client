@@ -1,0 +1,55 @@
+#modalGeneral {
+    width: 660px;
+    border-radius: 15px;
+    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+    padding: 10px;
+}
+
+#modalHeader {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#modalContent p {
+    display: flex;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+}
+
+#modalActions {
+    display: flex;
+    justify-content: center;
+}
+
+#pButton {
+    border-radius: 6px;
+}
+
+    #pButton:hover {
+        background: black;
+        color: white;
+    }
+
+#nButton {
+    border-radius: 6px;
+}
+
+    #nButton:hover {
+        background: black;
+        color: white;
+    }
+
+#botonEliminar {
+    border-radius: 6px;
+    width: fit-content;
+    margin-left: 35.5%;
+}
+
+    #botonEliminar:hover {
+        background: black;
+        color: white;
+    }

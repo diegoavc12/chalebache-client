@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Input, Segment, Table } from 'semantic-ui-react';
 import { BacheContext } from './bacheContext';
 import { toast } from 'react-toastify';
+import './styles/potholesList.css';
+import EliminarBache from './modalCRUD.js';
 import _ from 'lodash';
 
 function exampleReducer(state, action) {
@@ -80,8 +82,8 @@ function Lista() {
     }, [matchEvent])
     return (
         <Segment.Group>
-            <Segment>
-                <Input placeholder='Busca un bache' fluid>
+            <Segment id='buscador'>
+                <Input className='buscadorBaches' placeholder='Busca un bache' fluid>
                     <input
                         ref={searchBox}
                         onKeyUp={() => {
@@ -95,33 +97,40 @@ function Lista() {
                             console.log(searchQuery)
                         }}
                     />
+                    <svg id='svg' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
                 </Input>
             </Segment>
-            <Segment>
-                <Table color="black" selectable sortable celled fixed>
+            <Segment id='tabla'>
+                <Table color="white" selectable sortable celled fixed>
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell sorted={column === 'id' ? direction : null}
                                 onClick={() => {
                                     dispatch({ type: 'CHANGE_SORT', column: 'id' })
-                                }}>Id</Table.HeaderCell>
-                            <Table.HeaderCell>Fecha de deteccion</Table.HeaderCell>
-                            <Table.HeaderCell>Ultimo incidente</Table.HeaderCell>
+                                }}><h3>ID</h3></Table.HeaderCell>
+                            <Table.HeaderCell><h3>Fecha de deteccion</h3></Table.HeaderCell>
+                            <Table.HeaderCell><h3>Ultima deteccion</h3></Table.HeaderCell>
                             <Table.HeaderCell sorted={column === 'numIncidents' ? direction : null}
-                                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'numIncidents' })}>Numero de incidentes</Table.HeaderCell>
+                                onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'numIncidents' })}><h3>Incidentes</h3></Table.HeaderCell>
+                            <Table.HeaderCell></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
-                    <Table.Body>
+                    <Table.Body className='tablaBaches'>
                         {console.log(state.ndata)}
                         {ndata.map((pothole, i) => {
                             return (<Table.Row key={i} onClick={() => {
                                 setBache(pothole)
-                                toast.info("Bache Seleccionado")
+                                toast.info("Bache seleccionado")
                             }}>
                                 <Table.Cell>{pothole.id}</Table.Cell>
                                 <Table.Cell>{pothole.firstIncident}</Table.Cell>
                                 <Table.Cell>{pothole.lastIncident}</Table.Cell>
                                 <Table.Cell>{pothole.numIncidents}</Table.Cell>
+                                <Table.Cell>
+                                    <EliminarBache />
+                                </Table.Cell>
                             </Table.Row>
                             )
                         })}

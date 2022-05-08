@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { BacheContext } from './bacheContext';
-import { Button, Header, Modal } from 'semantic-ui-react';
+import { Button, Header, Modal, Icon } from 'semantic-ui-react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './styles/eraseModal.css';
 import axios from 'axios';
 toast.configure()
 
@@ -43,12 +44,11 @@ function ModalExampleCloseIcon() {
     }, [bache])
     return (
         <div>
-            <Modal
-                closeIcon
+            <Modal id='modalGeneral'
                 open={open}
-                trigger={<Button disabled={enable} fluid size='large' floated="left" negative onClick={() => {
+                trigger={<Button id='botonEliminar' fluid size='large' floated="left" negative onClick={() => {
                     if (bache === undefined) {
-                        toast.info("Por favor selecciona un bache a eliminar")
+                        toast.info("Por favor, selecciona el bache a eliminar")
                     } else {
                         setOpen(true)
                     }
@@ -58,27 +58,26 @@ function ModalExampleCloseIcon() {
 
                 }}
             >
-                <Header content='Estas Seguro de eliminar el bache?' />
-                <Modal.Content>
-                    <p>
-                        {bache.name}
-                        {bache.id}
-                        {/* {<SemanticToastContainer position="top-right" />} */}
-                    </p>
+                <Header id='modalHeader' content='Estas seguro de eliminar el bache?' />
+                <Modal.Content id='modalContent'>
+                    <p><b>Nombre:</b></p>
+                    <p>{bache.name}</p>
+                    <p><b>ID:</b></p>
+                    <p>{bache.id}{/* {<SemanticToastContainer position="top-right" />} */}</p>
                 </Modal.Content>
-                <Modal.Actions>
-                    <Button color='red' onClick={() => {
-                        setOpen(false)
-                    }}>
-                        No
-                    </Button>
-                    <Button color='green' onClick={() => {
+                <Modal.Actions id='modalActions'>
+                    <Button id='pButton' color='green' onClick={() => {
                         elimiBache(bache)
                         setOpen(false)
                         console.log("Bache eliminado")
                         notification()
                     }}>
-                        Yes
+                        Seguro
+                    </Button>
+                    <Button id='nButton' color='red' onClick={() => {
+                        setOpen(false)
+                    }}>
+                        Cancelar
                     </Button>
                 </Modal.Actions>
             </Modal>

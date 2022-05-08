@@ -30,12 +30,12 @@ function ListExampleHorizontalOrdered() {
     }, [])
     return (
         <List horizontal ordered>
-            <List.Item>               
+            <List.Item>
                 <Image circular src={require('./imgs/marker.png').default} />
                 <List.Content>
                     <div id='top1'>
                         <List.Header>ID</List.Header>{first.id}
-                        <List.Header>Incidents</List.Header>{first.numIncidents}
+                        <List.Header>Incidentes</List.Header>{first.numIncidents}
                     </div>
                 </List.Content>
             </List.Item>
@@ -44,7 +44,7 @@ function ListExampleHorizontalOrdered() {
                 <List.Content>
                     <div id='top2'>
                         <List.Header>ID</List.Header>{second.id}
-                        <List.Header>Incidents</List.Header>{second.numIncidents}
+                        <List.Header>Incidentes</List.Header>{second.numIncidents}
                     </div>
                 </List.Content>
             </List.Item>
@@ -53,7 +53,7 @@ function ListExampleHorizontalOrdered() {
                 <List.Content>
                     <div id='top3'>
                         <List.Header>ID</List.Header>{third.id}
-                        <List.Header>Incidents</List.Header>{third.numIncidents}
+                        <List.Header>Incidentes</List.Header>{third.numIncidents}
                     </div>
                 </List.Content>
             </List.Item>

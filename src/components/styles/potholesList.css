@@ -1,0 +1,36 @@
+.buscadorBaches {
+    width: 20%;
+    height: 20%;
+    left: 0.5%;
+    margin-top: 8px;
+}
+
+    .buscadorBaches svg {
+        position: absolute;
+        margin-top: 10px;
+        left: 96%;
+        transform: translate(-50%);
+    }
+
+table tr {
+    text-align: center;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#buscador {
+    background-color: black;
+    margin-left: -0.5%;
+    margin-right: -0.5%;
+}
+
+#tabla {
+    background-color: black;
+    margin-bottom: -15px;
+    margin-left: -0.5%;
+    margin-right: -0.5%;
+}
+
+#tabla h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

@@ -3,6 +3,7 @@ import { Grid, Menu, Segment } from 'semantic-ui-react';
 import LineChart from './customShapeBarChart';
 import PieChart from './pieChart';
 import AreaChart from './customStackedAreaChart';
+import './styles/menu.css';
 // import LineChart from './lineChart';
 
 export default class MenuExampleTabularOnLeft extends Component {
@@ -20,13 +21,13 @@ export default class MenuExampleTabularOnLeft extends Component {
     handleItemClick = (e, { name }) => {
         this.setState({ activeItem: name })
         switch (name) {
-            case "top":
+            case "Top Baches":
                 this.setState({ showHideDemo1: true, showHideDemo2: false, showHideDemo3: false });
                 break;
-            case "Classification":
+            case "Clasificacion":
                 this.setState({ showHideDemo1: false, showHideDemo2: true, showHideDemo3: false });
                 break;
-            case "Date":
+            case "Fecha":
                 this.setState({ showHideDemo1: false, showHideDemo2: false, showHideDemo3: true });
                 break;
         }
@@ -35,33 +36,34 @@ export default class MenuExampleTabularOnLeft extends Component {
         const { activeItem } = this.state
         const { showHideDemo1, showHideDemo2, showHideDemo3 } = this.state;
         return (
-            <Grid>
-                <Grid.Column width={3}>
-                    <Menu fluid vertical tabular size={"massive"}>
-                        <Menu.Item
-                            name='top'
-                            active={activeItem === 'top'}
+            <Grid id='grid'>
+                <Grid.Column className='menuGrid' width={3}>
+                    <Menu id='menu' fluid vertical tabular size={"massive"}>
+                        <Menu.Item id='top' class='active'
+                            name='Top Baches'
+                            active={activeItem === 'Top Baches'}
                             onClick={this.handleItemClick}
                         />
-                        <Menu.Item
-                            name='Classification'
-                            active={activeItem === 'Classification'}
+                        <br />
+                        <Menu.Item id='class' class='active'
+                            name='Clasificacion'
+                            active={activeItem === 'Clasificacion'}
                             onClick={this.handleItemClick}
                         />
-                        <Menu.Item
-                            name='Date'
-                            active={activeItem === 'Date'}
+                        <br />
+                        <Menu.Item id='fecha' class='active'
+                            name='Fecha'
+                            active={activeItem === 'Fecha'}
                             onClick={this.handleItemClick}
                         />
                     </Menu>
                 </Grid.Column>
                 <Grid.Column stretched width={12}>
-                    <h2>Charts</h2>
-                    <Segment  >
+                    <h2>Graficos</h2>
+                    <Segment id='segmentChart'>
                         {showHideDemo2 && <PieChart />}
                         {showHideDemo1 && <LineChart />}
                         {showHideDemo3 && <AreaChart />}
-
                     </Segment>
                 </Grid.Column>
             </Grid>

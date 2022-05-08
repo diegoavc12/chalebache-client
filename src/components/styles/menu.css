@@ -1,0 +1,119 @@
+#grid {
+    background-color: black;
+}
+
+.menuGrid {
+    background-color: black;
+    margin-left: 2.5%;
+}
+
+#menu {
+    background-color: black;
+    margin-top: 73%;
+}
+
+#top {
+    position: relative;
+    display: block;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    max-width: 320px;
+    height: 5.5vH;
+    overflow: hidden;
+    color: black;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    text-decoration: none;
+    transition: all ease 0.5s;
+    background: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+    #top:hover {
+        background: black;
+        color: white;
+        border: 1px solid white;
+    }
+
+    #top.active {
+        background: red;
+        color: white;
+        border: 1px solid black;
+    }
+
+#class {
+    position: relative;
+    display: block;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    max-width: 320px;
+    height: 5.5vH;
+    overflow: hidden;
+    color: black;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    text-decoration: none;
+    transition: all ease 0.5s;
+    background: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+    #class:hover {
+        background: black;
+        color: white;
+        border: 1px solid white;
+    }
+
+    #class.active {
+        background: red;
+        color: white;
+        border: 1px solid black;
+    }
+
+#fecha {
+    position: relative;
+    display: block;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    max-width: 320px;
+    height: 5.5vH;
+    overflow: hidden;
+    color: black;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    text-decoration: none;
+    transition: all ease 0.5s;
+    background: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+    #fecha:hover {
+        background: black;
+        color: white;
+        border: 1px solid white;
+    }
+
+    #fecha.active {
+        background: red;
+        color: white;
+        border: 1px solid black;
+    }
+
+#segmentChart {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    color: white;
+}

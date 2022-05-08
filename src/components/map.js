@@ -167,11 +167,15 @@ function GoogleMaps() {
                     setSelected(null);
                 }}>
                     <div id='infoModal'>
-                        <h2>Datos del Bache</h2>
-                        <p><b>ID:</b> {selected.id}</p>
-                        <p><b>Primera detección:</b> {formatRelative(parseISO(selected.firstIncident), new Date())}</p>
-                        <p><b>Última detección:</b> {formatRelative(parseISO(selected.lastIncident), new Date())}</p>
-                        <p><b>Detecciones totales:</b> {selected.numIncidents}</p>
+                        <h3>Datos del Bache</h3>
+                        <h4>ID:</h4>
+                        <p>{selected.id}</p>
+                        <h4>Fecha de detección:</h4>
+                        <p>{formatRelative(parseISO(selected.firstIncident), new Date())}</p>
+                        <h4>Última detección:</h4>
+                        <p>{formatRelative(parseISO(selected.lastIncident), new Date())}</p>
+                        <h4>Incidentes:</h4>
+                        <p>{selected.numIncidents}</p>
                     </div>
                 </InfoWindow>) : null}
             </GoogleMap>
