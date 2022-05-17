@@ -1,8 +1,8 @@
 /* eslint-disable */
-import React, { useContext, useEffect, useState, useCallback, memo } from 'react';
-import { GoogleMap, Marker, HeatmapLayer, InfoWindow, useLoadScript } from '@react-google-maps/api';
+import React, { useRef, useContext, useEffect, useState, useCallback, memo } from 'react';
+import { GoogleMap, Marker, HeatmapLayer, InfoWindow, useLoadScript, DirectionsRenderer, Autocomplete} from '@react-google-maps/api';
 import { BacheContext } from '../components/bacheContext';
-import { Button } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 import { formatRelative, parseISO } from "date-fns";
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
@@ -62,7 +62,7 @@ function GoogleMaps() {
 
     const panTo = React.useCallback(({ lat, lng }) => {
         mapRef.current.panTo({ lat, lng });
-        map.current.setZoom(14)
+        mapRef.current.setZoom(16)
     }, [])
 
     const onUnmount = useCallback(function callback(map) {
@@ -112,6 +112,40 @@ function GoogleMaps() {
         setSelected(null)
     }
 
+    //Draw Route consts
+    const [directionsResponse, setDirectionsResponse] = useState(null)
+
+    /** @type React.MutableRefObject<HTMLInputElement> */
+    const originRef = useRef()
+    /** @type React.MutableRefObject<HTMLInputElement> */
+    const destiantionRef = useRef()
+
+    //Draw Route Functions
+    async function calculateRoute() {
+        if (originRef.current.value === '' || destiantionRef.current.value === '') {
+          return
+        }
+        // eslint-disable-next-line no-undef
+        const directionsService = new google.maps.DirectionsService()
+        const results = await directionsService.route({
+          origin: originRef.current.value,
+          destination: destiantionRef.current.value,
+          // eslint-disable-next-line no-undef
+          travelMode: google.maps.TravelMode.DRIVING,
+        })
+        setDirectionsResponse(results)
+        setDistance(results.routes[0].legs[0].distance.text)
+        setDuration(results.routes[0].legs[0].duration.text)
+      }
+    
+    function clearRoute() {
+        setDirectionsResponse(null)
+        setDistance('')
+        setDuration('')
+        originRef.current.value = ''
+        destiantionRef.current.value = ''
+    }
+
     if (loadError) {
         return <div>Map cannot be loaded right now, sorry.</div>
     }
@@ -123,7 +157,14 @@ function GoogleMaps() {
                 <Button.Or />
                 <Button primary onClick={resetMap} size="large">Reiniciar</Button>
             </Button.Group>
+            
+            {/*Draw Route Button */}
+            <Button type='submit' onClick={calculateRoute}>
+                Calculate Route
+            </Button>
+
             <Search panTo={panTo} />
+
             <GoogleMap
                 onLoad={onLoad}
                 mapContainerStyle={style}
@@ -131,6 +172,15 @@ function GoogleMaps() {
                 zoom={mapOptions.zoom}
                 onUnmount={onUnmount}
             >
+                {/*Draw Route Origin and Destination Inputs */}
+                <Autocomplete>
+                    <Input type='text' placeholder='Origin' ref={originRef}/>
+                </Autocomplete>
+
+                <Autocomplete>
+                    <Input type='text' placeholder='Destination' ref={destiantionRef}/>
+                </Autocomplete>
+
                 {data.map((pothole, i) => {
                     if (pothole.type === 'Automatic') {
                         return (<Marker
@@ -179,7 +229,13 @@ function GoogleMaps() {
                         <p>{selected.numIncidents}</p>
                     </div>
                 </InfoWindow>) : null}
+
+                {/*directionsResponse and DirectionsRenderer used in drawing the route*/}
+                {directionsResponse && (<DirectionsRenderer directions={directionsResponse} />)}
             </GoogleMap>
+
+            
+
         </div>
     ) : <></>
 }
