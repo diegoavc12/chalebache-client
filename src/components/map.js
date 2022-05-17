@@ -44,7 +44,7 @@ function GoogleMaps() {
 
     const { isLoaded, loadError } = useLoadScript({
         id: 'google-map-script',
-        //AIzaSyCFqy0zNs8gFSwaK7SHiOas2DpSfvxJAHg
+        //AIzaSyC0M7zIOzXcPAk2eS9IZaFZvbBYqKP50OA
         googleMapsApiKey: "AIzaSyC0M7zIOzXcPAk2eS9IZaFZvbBYqKP50OA",
         libraries,
     })
@@ -110,41 +110,35 @@ function GoogleMaps() {
         setLat(20.6736)
         setLng(-103.344)
         setSelected(null)
+        setDirectionsResponse(null)
+        setOgDirection(null)
+        setDestDirection(null)
     }
 
     //Draw Route consts
     const [directionsResponse, setDirectionsResponse] = useState(null)
 
-    /** @type React.MutableRefObject<HTMLInputElement> */
-    const originRef = useRef()
-    /** @type React.MutableRefObject<HTMLInputElement> */
-    const destiantionRef = useRef()
+    //ComboBox Hybrid consts
+    const [ogDirection, setOgDirection] = useState(null);
+    const [destDirection, setDestDirection] = useState(null);
 
     //Draw Route Functions
     async function calculateRoute() {
-        if (originRef.current.value === '' || destiantionRef.current.value === '') {
+        if (ogDirection === null || destDirection === null) {
           return
         }
+        console.log("📍 Origin: ", ogDirection);
+        console.log("📍 Destination: ", destDirection);
         // eslint-disable-next-line no-undef
         const directionsService = new google.maps.DirectionsService()
         const results = await directionsService.route({
-          origin: originRef.current.value,
-          destination: destiantionRef.current.value,
+          origin: ogDirection,
+          destination: destDirection,
           // eslint-disable-next-line no-undef
           travelMode: google.maps.TravelMode.DRIVING,
         })
         setDirectionsResponse(results)
-        setDistance(results.routes[0].legs[0].distance.text)
-        setDuration(results.routes[0].legs[0].duration.text)
       }
-    
-    function clearRoute() {
-        setDirectionsResponse(null)
-        setDistance('')
-        setDuration('')
-        originRef.current.value = ''
-        destiantionRef.current.value = ''
-    }
 
     if (loadError) {
         return <div>Map cannot be loaded right now, sorry.</div>
@@ -160,26 +154,26 @@ function GoogleMaps() {
             
             {/*Draw Route Button */}
             <Button type='submit' onClick={calculateRoute}>
-                Calculate Route
+                Trazar Ruta
             </Button>
 
             <Search panTo={panTo} />
-
+            
+            {/*Origin and Destination Inputs for Route Drawing*/}
+            <DirectionSelector setDirection={setOgDirection} placeholderText="Origin" />
+            <DirectionSelector setDirection={setDestDirection} placeholderText="Destination" />
+            
             <GoogleMap
                 onLoad={onLoad}
                 mapContainerStyle={style}
                 center={mapOptions.center}
                 zoom={mapOptions.zoom}
                 onUnmount={onUnmount}
-            >
-                {/*Draw Route Origin and Destination Inputs */}
-                <Autocomplete>
-                    <Input type='text' placeholder='Origin' ref={originRef}/>
-                </Autocomplete>
-
-                <Autocomplete>
-                    <Input type='text' placeholder='Destination' ref={destiantionRef}/>
-                </Autocomplete>
+                options={{
+                    mapTypeControl: false,
+                    streetViewControl: false
+                }}
+            > 
 
                 {data.map((pothole, i) => {
                     if (pothole.type === 'Automatic') {
@@ -248,9 +242,11 @@ function Search({ panTo }) {
         },
     })
     return (<div className="search">
+
         <svg id='svg' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
         </svg>
+
         <Combobox onSelect={async (address) => {
             setValue(address, false);
             clearSuggestions();
@@ -281,5 +277,47 @@ function Search({ panTo }) {
     </div>
     )
 }
+
+/*Component for input origin and destination for route drawing
+Abstracted from Search function ComboBox*/
+const DirectionSelector = ({setDirection}, {placeholderText}) => {
+    const {
+        ready,
+        value,
+        setValue,
+        suggestions: { status, data },
+        clearSuggestions,
+      } = usePlacesAutocomplete();
+    
+      const handleSelect = async (address) => {
+        setValue(address, false);
+        clearSuggestions();
+    
+        const results = await getGeocode({ address });
+        const { lat, lng } = await getLatLng(results[0]);
+        console.log("Route Coordinates: ", { lat, lng });
+        setDirection({ lat, lng });
+      };
+    
+      return (
+        <Combobox onSelect={handleSelect}>
+          <ComboboxInput
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            disabled={!ready}
+            className="combobox-input"
+            placeholder={placeholderText}
+          />
+          <ComboboxPopover>
+            <ComboboxList>
+              {status === "OK" &&
+                data.map(({ place_id, description }) => (
+                  <ComboboxOption key={place_id} value={description} />
+                ))}
+            </ComboboxList>
+          </ComboboxPopover>
+        </Combobox>
+      );
+};
 
 export default memo(GoogleMaps)
