@@ -4,6 +4,7 @@ import { BacheContext } from './bacheContext';
 import { toast } from 'react-toastify';
 import './styles/potholesList.css';
 import EliminarBache from './modalCRUD.js';
+import CheckBox from './checkBox.js';
 import _ from 'lodash';
 
 function exampleReducer(state, action) {
@@ -110,11 +111,12 @@ function Lista() {
                                 onClick={() => {
                                     dispatch({ type: 'CHANGE_SORT', column: 'id' })
                                 }}><h3>ID</h3></Table.HeaderCell>
-                            <Table.HeaderCell><h3>Fecha de deteccion</h3></Table.HeaderCell>
-                            <Table.HeaderCell><h3>Ultima deteccion</h3></Table.HeaderCell>
+                            <Table.HeaderCell><h3>Fecha de detección</h3></Table.HeaderCell>
+                            <Table.HeaderCell><h3>Ultima detección</h3></Table.HeaderCell>
                             <Table.HeaderCell sorted={column === 'numIncidents' ? direction : null}
                                 onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'numIncidents' })}><h3>Incidentes</h3></Table.HeaderCell>
-                            <Table.HeaderCell></Table.HeaderCell>
+                            <Table.HeaderCell><h3>Reparado</h3></Table.HeaderCell>
+                            <Table.HeaderCell><h3>-</h3></Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     <Table.Body className='tablaBaches'>
@@ -128,6 +130,9 @@ function Lista() {
                                 <Table.Cell>{pothole.firstIncident}</Table.Cell>
                                 <Table.Cell>{pothole.lastIncident}</Table.Cell>
                                 <Table.Cell>{pothole.numIncidents}</Table.Cell>
+                                <Table.Cell>
+                                    <CheckBox />
+                                </Table.Cell>
                                 <Table.Cell>
                                     <EliminarBache />
                                 </Table.Cell>

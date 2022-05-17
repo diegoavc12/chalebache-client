@@ -58,7 +58,7 @@ function ModalExampleCloseIcon() {
 
                 }}
             >
-                <Header id='modalHeader' content='Estas seguro de eliminar el bache?' />
+                <Header id='modalHeader' content='¿Estás seguro de eliminar el bache?' />
                 <Modal.Content id='modalContent'>
                     <p><b>Nombre:</b></p>
                     <p>{bache.name}</p>

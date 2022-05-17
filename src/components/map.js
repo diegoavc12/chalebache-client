@@ -163,6 +163,7 @@ function GoogleMaps() {
                     }
                 })}
                 {show && <HeatmapLayer onLoad={onLoadHeat} onUnmount={onUnmountHeat} data={heatMapData} options={heatMapOptions} />}
+                {/*Implementar funcionalidad para cerrar el pop-up al clickear en las partes externas a este.*/}
                 {selected ? (<InfoWindow position={{ lat: selected.lat, lng: selected.lng }} onCloseClick={() => {
                     setSelected(null);
                 }}>
