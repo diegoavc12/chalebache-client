@@ -62,7 +62,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/JMicalco/chalebache-client.git
+   git clone https://github.com/diegoavc12/chalebache-client.git
    ```
 2. Install NPM packages
    ```sh
