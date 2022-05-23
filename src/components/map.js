@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useRef, useContext, useEffect, useState, useCallback, memo } from 'react';
-import { GoogleMap, Marker, HeatmapLayer, InfoWindow, useLoadScript, DirectionsRenderer, Autocomplete} from '@react-google-maps/api';
+import { GoogleMap, Marker, HeatmapLayer, InfoWindow, useLoadScript, DirectionsRenderer, Autocomplete } from '@react-google-maps/api';
 import { BacheContext } from '../components/bacheContext';
 import { Button, Input } from 'semantic-ui-react';
 import { formatRelative, parseISO } from "date-fns";
@@ -125,20 +125,20 @@ function GoogleMaps() {
     //Draw Route Functions
     async function calculateRoute() {
         if (ogDirection === null || destDirection === null) {
-          return
+            return
         }
         console.log("📍 Origin: ", ogDirection);
         console.log("📍 Destination: ", destDirection);
         // eslint-disable-next-line no-undef
         const directionsService = new google.maps.DirectionsService()
         const results = await directionsService.route({
-          origin: ogDirection,
-          destination: destDirection,
-          // eslint-disable-next-line no-undef
-          travelMode: google.maps.TravelMode.DRIVING,
+            origin: ogDirection,
+            destination: destDirection,
+            // eslint-disable-next-line no-undef
+            travelMode: google.maps.TravelMode.DRIVING,
         })
         setDirectionsResponse(results)
-      }
+    }
 
     if (loadError) {
         return <div>Map cannot be loaded right now, sorry.</div>
@@ -151,18 +151,22 @@ function GoogleMaps() {
                 <Button.Or />
                 <Button primary onClick={resetMap} size="large">Reiniciar</Button>
             </Button.Group>
-            
-            {/*Draw Route Button */}
-            <Button type='submit' onClick={calculateRoute}>
-                Trazar Ruta
-            </Button>
 
             <Search panTo={panTo} />
-            
-            {/*Origin and Destination Inputs for Route Drawing*/}
-            <DirectionSelector setDirection={setOgDirection} placeholderText="Origin" />
-            <DirectionSelector setDirection={setDestDirection} placeholderText="Destination" />
-            
+
+            <div className='trazarRuta'>
+                {/*Origin and Destination Inputs for Route Drawing*/}
+                <h4>De:</h4>
+                <DirectionSelector setDirection={setOgDirection} placeholderText="Origin" />
+                <h4>Hacia:</h4>
+                <DirectionSelector setDirection={setDestDirection} placeholderText="Destination" />
+                <br />
+                {/*Draw Route Button */}
+                <Button id='trazarBoton' type='submit' onClick={calculateRoute}>
+                    <h4>Trazar Ruta</h4>
+                </Button>
+            </div>
+
             <GoogleMap
                 onLoad={onLoad}
                 mapContainerStyle={style}
@@ -170,10 +174,10 @@ function GoogleMaps() {
                 zoom={mapOptions.zoom}
                 onUnmount={onUnmount}
                 options={{
-                    mapTypeControl: false,
-                    streetViewControl: false
+                    mapTypeControl: true,
+                    streetViewControl: true
                 }}
-            > 
+            >
 
                 {data.map((pothole, i) => {
                     if (pothole.type === 'Automatic') {
@@ -228,7 +232,7 @@ function GoogleMaps() {
                 {directionsResponse && (<DirectionsRenderer directions={directionsResponse} />)}
             </GoogleMap>
 
-            
+
 
         </div>
     ) : <></>
@@ -280,44 +284,44 @@ function Search({ panTo }) {
 
 /*Component for input origin and destination for route drawing
 Abstracted from Search function ComboBox*/
-const DirectionSelector = ({setDirection}, {placeholderText}) => {
+const DirectionSelector = ({ setDirection }, { placeholderText }) => {
     const {
         ready,
         value,
         setValue,
         suggestions: { status, data },
         clearSuggestions,
-      } = usePlacesAutocomplete();
-    
-      const handleSelect = async (address) => {
+    } = usePlacesAutocomplete();
+
+    const handleSelect = async (address) => {
         setValue(address, false);
         clearSuggestions();
-    
+
         const results = await getGeocode({ address });
         const { lat, lng } = await getLatLng(results[0]);
         console.log("Route Coordinates: ", { lat, lng });
         setDirection({ lat, lng });
-      };
-    
-      return (
+    };
+
+    return (
         <Combobox onSelect={handleSelect}>
-          <ComboboxInput
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            disabled={!ready}
-            className="combobox-input"
-            placeholder={placeholderText}
-          />
-          <ComboboxPopover>
-            <ComboboxList>
-              {status === "OK" &&
-                data.map(({ place_id, description }) => (
-                  <ComboboxOption key={place_id} value={description} />
-                ))}
-            </ComboboxList>
-          </ComboboxPopover>
+            <ComboboxInput
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                disabled={!ready}
+                className="combobox-input"
+                placeholder={placeholderText}
+            />
+            <ComboboxPopover>
+                <ComboboxList>
+                    {status === "OK" &&
+                        data.map(({ place_id, description }) => (
+                            <ComboboxOption key={place_id} value={description} />
+                        ))}
+                </ComboboxList>
+            </ComboboxPopover>
         </Combobox>
-      );
+    );
 };
 
 export default memo(GoogleMaps)

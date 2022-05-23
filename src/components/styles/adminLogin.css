@@ -74,11 +74,11 @@ body {
         transition: 0.4s;
     }
 
-        .newBox input[type="text"]:hover,
+        /*.newBox input[type="text"]:hover,
         .newBox input[type="password"]:hover {
-            width: 280px;
+            width: 80px;
             border-color: black;
-        }
+        }*/
 
     .newBox input[type="button"] {
         margin: 35px auto;
