@@ -24,7 +24,7 @@ export default class MenuExampleTabularOnLeft extends Component {
             case "Top Baches":
                 this.setState({ showHideDemo1: true, showHideDemo2: false, showHideDemo3: false });
                 break;
-            case "Clasificacion":
+            case "Agrupamiento":
                 this.setState({ showHideDemo1: false, showHideDemo2: true, showHideDemo3: false });
                 break;
             case "Fecha":
@@ -46,8 +46,8 @@ export default class MenuExampleTabularOnLeft extends Component {
                         />
                         <br />
                         <Menu.Item id='class' class='active'
-                            name= 'Clasificacion'
-                            active={activeItem === 'Clasificacion'}
+                            name= 'Agrupamiento'
+                            active={activeItem === 'Agrupamiento'}
                             onClick={this.handleItemClick}
                         />
                         <br />

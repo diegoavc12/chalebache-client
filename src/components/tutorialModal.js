@@ -18,17 +18,17 @@ const TutorialModal = () => {
                     Tutorial
                 </Modal.Header>
                 <Modal.Content id='modalContent' image>
-                    <h3>Instrucciones Básicas</h3>
+                    <h3>Instrucciones B&#225;sicas</h3>
                     <ol>
                         <li>
-                            Para consultar la información de los baches registrados, navega por el mapa y da click sobre los íconos.
+                            Para consultar la informaci&#243;n de los baches registrados, navega por el mapa y da click sobre los &#237;conos.
                         </li>
                         <li>
-                            Para encontrar una dirección específica, escribela en el buscador y da "enter" para iniciar la búsqueda.
+                            Para encontrar una direcci&#243;n espec&#237;fica, escr&#237;bela en el buscador y da "enter" para iniciar la b&#250;squeda.
                         </li>
                         <li>
                             Para acceder al apartado de Administrador, da click sobre "Admin".
-                            <br /><i>(Para más instrucciones de este apartado, ve el video anexado)</i>
+                            <br /><i>(Para m&#225;s instrucciones de este apartado, ve el video anexado)</i>
                         </li>
                         <li>
                             Para cerrar el Tutorial, da click sobre la "X" o en cualquier parte externa al Tutorial.

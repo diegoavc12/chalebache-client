@@ -212,7 +212,7 @@ function GoogleMaps() {
                 })}
                 {show && <HeatmapLayer onLoad={onLoadHeat} onUnmount={onUnmountHeat} data={heatMapData} options={heatMapOptions} />}
                 {/*Implementar funcionalidad para cerrar el pop-up al clickear en las partes externas a este.*/}
-                {selected ? (<InfoWindow position={{ lat: selected.lat, lng: selected.lng }} onCloseClick={() => {
+                {selected ? (<InfoWindow id='infoWindow' position={{ lat: selected.lat, lng: selected.lng }} onCloseClick={() => {
                     setSelected(null);
                 }}>
                     <div id='infoModal'>
@@ -231,9 +231,6 @@ function GoogleMaps() {
                 {/*directionsResponse and DirectionsRenderer used in drawing the route*/}
                 {directionsResponse && (<DirectionsRenderer directions={directionsResponse} />)}
             </GoogleMap>
-
-
-
         </div>
     ) : <></>
 }
