@@ -34,3 +34,9 @@ table tr {
 #tabla h3 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+#botonMapa {
+    border-radius: 6px;
+    width: fit-content;
+    margin-bottom: 2px;
+}

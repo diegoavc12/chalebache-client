@@ -46,7 +46,7 @@ function ModalExampleCloseIcon() {
         <div>
             <Modal id='modalGeneral'
                 open={open}
-                trigger={<Button id='botonEliminar' fluid size='large' floated="left" negative onClick={() => {
+                trigger={<Button size='small' id='botonEliminar' negative onClick={() => {
                     if (bache === undefined) {
                         toast.info("Por favor, selecciona el bache a eliminar")
                     } else {
@@ -58,7 +58,7 @@ function ModalExampleCloseIcon() {
 
                 }}
             >
-                <Header id='modalHeader' content='¿Estás seguro de eliminar el bache?' />
+                <Header id='modalHeader' content='&#191;Est&#225;s seguro de eliminar el bache?' />
                 <Modal.Content id='modalContent'>
                     <p><b>Nombre:</b></p>
                     <p>{bache.name}</p>

@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { Input, Segment, Table } from 'semantic-ui-react';
+import { Input, Segment, Table, Button, Icon } from 'semantic-ui-react';
 import { BacheContext } from './bacheContext';
-import { toast } from 'react-toastify';
 import './styles/potholesList.css';
 import EliminarBache from './modalCRUD.js';
+import MostrarEnMapa from './mostrarEnMapa.js';
 import CheckBox from './checkBox.js';
 import _ from 'lodash';
 
@@ -111,8 +111,8 @@ function Lista() {
                                 onClick={() => {
                                     dispatch({ type: 'CHANGE_SORT', column: 'id' })
                                 }}><h3>ID</h3></Table.HeaderCell>
-                            <Table.HeaderCell><h3>Fecha de detección</h3></Table.HeaderCell>
-                            <Table.HeaderCell><h3>Ultima detección</h3></Table.HeaderCell>
+                            <Table.HeaderCell><h3>Fecha de detecci&#243;n</h3></Table.HeaderCell>
+                            <Table.HeaderCell><h3>&#218;ltima detecci&#243;n</h3></Table.HeaderCell>
                             <Table.HeaderCell sorted={column === 'numIncidents' ? direction : null}
                                 onClick={() => dispatch({ type: 'CHANGE_SORT', column: 'numIncidents' })}><h3>Incidentes</h3></Table.HeaderCell>
                             <Table.HeaderCell><h3>Reparado</h3></Table.HeaderCell>
@@ -122,10 +122,7 @@ function Lista() {
                     <Table.Body className='tablaBaches'>
                         {console.log(state.ndata)}
                         {ndata.map((pothole, i) => {
-                            return (<Table.Row key={i} onClick={() => {
-                                setBache(pothole)
-                                toast.info("Bache seleccionado")
-                            }}>
+                            return (<Table.Row>
                                 <Table.Cell>{pothole.id}</Table.Cell>
                                 <Table.Cell>{pothole.firstIncident}</Table.Cell>
                                 <Table.Cell>{pothole.lastIncident}</Table.Cell>
@@ -133,8 +130,14 @@ function Lista() {
                                 <Table.Cell>
                                     <CheckBox />
                                 </Table.Cell>
-                                <Table.Cell>
-                                    <EliminarBache />
+                                <Table.Cell warning={true} key={i} onClick={() => {
+                                    setBache(pothole)
+                                }}>
+                                    <Button.Group>
+                                        <MostrarEnMapa />
+                                        <Button.Or />
+                                        <EliminarBache />
+                                    </Button.Group>
                                 </Table.Cell>
                             </Table.Row>
                             )
@@ -143,7 +146,7 @@ function Lista() {
                 </Table>
             </Segment>
         </Segment.Group>
-    )
+    );
 }
 
 export default Lista

@@ -29,35 +29,37 @@ function ListExampleHorizontalOrdered() {
         })
     }, [])
     return (
-        <List horizontal ordered>
-            <List.Item>
-                <Image circular src={require('./imgs/marker.png').default} />
-                <List.Content>
-                    <div id='top1'>
-                        <List.Header>ID</List.Header>{first.id}
-                        <List.Header>Incidentes</List.Header>{first.numIncidents}
-                    </div>
-                </List.Content>
-            </List.Item>
-            <List.Item>
-                <Image circular src={require('./imgs/marker.png').default} />
-                <List.Content>
-                    <div id='top2'>
-                        <List.Header>ID</List.Header>{second.id}
-                        <List.Header>Incidentes</List.Header>{second.numIncidents}
-                    </div>
-                </List.Content>
-            </List.Item>
-            <List.Item>
-                <Image circular src={require('./imgs/marker.png').default} />
-                <List.Content>
-                    <div id='top3'>
-                        <List.Header>ID</List.Header>{third.id}
-                        <List.Header>Incidentes</List.Header>{third.numIncidents}
-                    </div>
-                </List.Content>
-            </List.Item>
-        </List>
+        <div id='topBaches'>
+            <List horizontal ordered>
+                <List.Item>
+                    <Image circular src={require('./imgs/marker.png').default} />
+                    <List.Content>
+                        <div id='top1'>
+                            <List.Header>ID</List.Header>{first.id}
+                            <List.Header>Incidentes</List.Header>{first.numIncidents}
+                        </div>
+                    </List.Content>
+                </List.Item>
+                <List.Item>
+                    <Image circular src={require('./imgs/marker.png').default} />
+                    <List.Content>
+                        <div id='top2'>
+                            <List.Header>ID</List.Header>{second.id}
+                            <List.Header>Incidentes</List.Header>{second.numIncidents}
+                        </div>
+                    </List.Content>
+                </List.Item>
+                <List.Item>
+                    <Image circular src={require('./imgs/marker.png').default} />
+                    <List.Content>
+                        <div id='top3'>
+                            <List.Header>ID</List.Header>{third.id}
+                            <List.Header>Incidentes</List.Header>{third.numIncidents}
+                        </div>
+                    </List.Content>
+                </List.Item>
+            </List>
+        </div>
     )
 }
 

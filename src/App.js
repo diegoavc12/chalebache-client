@@ -33,9 +33,6 @@ function App() {
                         {/* {!loading && <MainAdminCRUD/>} */}
                         <MainAdminCRUD />
                     </Route>
-                    {/*<Route exact path='/tutorial'>
-              <Tutorial/>
-            </Route>*/}
                 </Switch>
             </Router>}
         </div>

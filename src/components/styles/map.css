@@ -59,7 +59,7 @@
 .trazarRuta {
     position: absolute;
     top: 5.2rem;
-    left: 10.9%;
+    left: 10.7%;
     transform: translate(-50%);
     z-index: 10;
     font-size: 0.9vw;
@@ -67,12 +67,12 @@
     padding: 5px 20px;
     border-radius: 15px;
     transition: 0.4s;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.2);
 }
 
 .combobox-input {
     color: black;
-    border-radius: 7px;
+    border-radius: 8px;
 }
 
 #trazarBoton {
@@ -80,3 +80,7 @@
     color: white;
     border-radius: 15px;
 }
+
+    #trazarBoton:hover {
+        background-color: #3a3d3d;
+    }

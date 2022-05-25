@@ -302,7 +302,6 @@ const DirectionSelector = ({ setDirection }, { placeholderText }) => {
         console.log("Route Coordinates: ", { lat, lng });
         setDirection({ lat, lng });
     };
-
     return (
         <Combobox onSelect={handleSelect}>
             <ComboboxInput

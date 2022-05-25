@@ -46,7 +46,7 @@ export default class MenuExampleTabularOnLeft extends Component {
                         />
                         <br />
                         <Menu.Item id='class' class='active'
-                            name='Clasificacion'
+                            name= 'Clasificacion'
                             active={activeItem === 'Clasificacion'}
                             onClick={this.handleItemClick}
                         />
@@ -59,7 +59,7 @@ export default class MenuExampleTabularOnLeft extends Component {
                     </Menu>
                 </Grid.Column>
                 <Grid.Column stretched width={12}>
-                    <h2>Graficos</h2>
+                    <h2>Gr&#225;ficos</h2>
                     <Segment id='segmentChart'>
                         {showHideDemo2 && <PieChart />}
                         {showHideDemo1 && <LineChart />}

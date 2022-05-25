@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Searchbar from './searchbar';
-import './styles/test.css'
+import './styles/test.css';
 
 export default class Test extends Component {
     render() {
