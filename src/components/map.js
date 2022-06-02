@@ -8,6 +8,7 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocom
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 import './styles/map.css';
+import { OutsideClick } from './outsideClick.js';
 
 const libraries = ['places', 'visualization'];
 
@@ -211,7 +212,6 @@ function GoogleMaps() {
                     }
                 })}
                 {show && <HeatmapLayer onLoad={onLoadHeat} onUnmount={onUnmountHeat} data={heatMapData} options={heatMapOptions} />}
-                {/*Implementar funcionalidad para cerrar el pop-up al clickear en las partes externas a este.*/}
                 {selected ? (<InfoWindow id='infoWindow' position={{ lat: selected.lat, lng: selected.lng }} onCloseClick={() => {
                     setSelected(null);
                 }}>
@@ -225,9 +225,9 @@ function GoogleMaps() {
                         <p>{formatRelative(parseISO(selected.lastIncident), new Date())}</p>
                         <h4>Incidentes:</h4>
                         <p>{selected.numIncidents}</p>
+                        <OutsideClick show={selected} onClickOutside={() => { setSelected(false) }} />
                     </div>
                 </InfoWindow>) : null}
-
                 {/*directionsResponse and DirectionsRenderer used in drawing the route*/}
                 {directionsResponse && (<DirectionsRenderer directions={directionsResponse} />)}
             </GoogleMap>
