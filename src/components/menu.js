@@ -4,7 +4,6 @@ import LineChart from './customShapeBarChart';
 import PieChart from './pieChart';
 import AreaChart from './customStackedAreaChart';
 import './styles/menu.css';
-// import LineChart from './lineChart';
 
 export default class MenuExampleTabularOnLeft extends Component {
     constructor() {
@@ -27,9 +26,6 @@ export default class MenuExampleTabularOnLeft extends Component {
             case "Agrupamiento":
                 this.setState({ showHideDemo1: false, showHideDemo2: true, showHideDemo3: false });
                 break;
-            case "Fecha":
-                this.setState({ showHideDemo1: false, showHideDemo2: false, showHideDemo3: true });
-                break;
         }
     }
     render() {
@@ -48,12 +44,6 @@ export default class MenuExampleTabularOnLeft extends Component {
                         <Menu.Item id='class' class='active'
                             name= 'Agrupamiento'
                             active={activeItem === 'Agrupamiento'}
-                            onClick={this.handleItemClick}
-                        />
-                        <br />
-                        <Menu.Item id='fecha' class='active'
-                            name='Fecha'
-                            active={activeItem === 'Fecha'}
                             onClick={this.handleItemClick}
                         />
                     </Menu>

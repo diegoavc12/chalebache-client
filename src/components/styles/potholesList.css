@@ -40,3 +40,7 @@ table tr {
     width: fit-content;
     margin-bottom: 2px;
 }
+
+#or {
+    z-index: 0;
+}

@@ -135,7 +135,7 @@ function Lista() {
                                 }}>
                                     <Button.Group>
                                         <MostrarEnMapa />
-                                        <Button.Or />
+                                        <Button.Or id='or' />
                                         <EliminarBache />
                                     </Button.Group>
                                 </Table.Cell>

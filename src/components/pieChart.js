@@ -2,11 +2,11 @@ import React, { PureComponent } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
 const data = [
-    { name: 'Small', value: 400 },
-    { name: 'Medium', value: 300 },
-    { name: 'Big', value: 300 },
+    { name: 'Small', value: 290 },
+    { name: 'Medium', value: 320 },
+    { name: 'Big', value: 330 },
 ];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['red', 'black', 'green', '#FF8042'];
 const RADIAN = Math.PI / 180;
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
@@ -32,7 +32,7 @@ export default class Example extends PureComponent {
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={200}
+                        outerRadius={250}
                         fill="#8884d8"
                         dataKey="value"
                     >
