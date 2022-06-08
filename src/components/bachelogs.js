@@ -1,10 +1,8 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { BacheContext } from './bacheContext';
 import { Grid, Segment } from 'semantic-ui-react';
 import Modal from './modalCRUD';
-import './styles/info.css';
 import './styles/crud.css';
-import axios from 'axios';
 
 function BacheCRUD() {
     const { bache } = useContext(BacheContext)

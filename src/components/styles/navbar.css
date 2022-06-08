@@ -5,24 +5,11 @@
 }
 
 /* Style the links inside the navigation bar */
-
 #navbarButtons {
     float: right;
     margin-right: 3rem;
     padding: 20px 16px;
 }
-
-/* Change the color of links on hover
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}*/
-
-/* Style the "active" element to highlight the current page 
-.topnav a.active {
-  background-color: #3a3d3d;
-  color: white;
-}*/
 
 /* Style the search box inside the navigation bar */
 .topnav input[type="text"] {

@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 const AdminLogin = () => {
     const [data, setData] = useState({ username: '', password: '' })
     const history = useHistory()
+
     const inputChange = (event) => {
         setData({ ...data, [event.target.name]: event.target.value })
     }
@@ -27,9 +28,6 @@ const AdminLogin = () => {
     return (
         <div >
             <div className='loginApp'></div>
-            {/*<div id="mySidenav" class="sidenav">
-                    <a href="/" id="about">Inicio</a>
-                </div>*/}
             <div id='formLogin'>
                 <form className='newBox'>
                     <img className="icon" src={image} />
@@ -44,13 +42,10 @@ const AdminLogin = () => {
                             <input type="button" name="" value="Regresar"></input>
                         </a>
                     </div>
-                    {/* <a href="#">Forgot your password?</a><br /> */}
-                    {/* <a href="#">Create an account</a> */}
                 </form>
             </div>
         </div>
     )
-
 }
 
 export default AdminLogin

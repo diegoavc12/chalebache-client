@@ -11,7 +11,6 @@ export default function MainUsersApp() {
             <br />
             <Grid padded>
                 <Grid.Row>
-                    {/*<BacheInfo/>*/}
                 </Grid.Row>
                 <Grid.Row>
                     <Map class="l" />

@@ -1,9 +1,8 @@
 import React from 'react';
-import PotholesList from './potholesList';
-import Menu from './menu';
-import List from './topBaches';
-import { Grid } from 'semantic-ui-react';
-import './styles/dashboard.css';
+import PotholesList from './potholesList.js';
+import Menu from './menu.js';
+import List from './topBaches.js';
+import { Grid, Segment } from 'semantic-ui-react';
 
 const GridExampleDividedNumber = () => (
     <Grid >
@@ -12,11 +11,6 @@ const GridExampleDividedNumber = () => (
                 <List />
             </Grid.Column>
         </Grid.Row>
-        {/*<Grid.Row>
-      <Grid.Column>
-        <Segment><h1>HeatMap Chart</h1></Segment>
-      </Grid.Column>
-    </Grid.Row>*/}
         <Grid.Row>
             <Grid.Column>
                 <PotholesList />

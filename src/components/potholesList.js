@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { Input, Segment, Table, Button, Icon } from 'semantic-ui-react';
+import { Input, Segment, Table, Button } from 'semantic-ui-react';
 import { BacheContext } from './bacheContext';
 import './styles/potholesList.css';
 import EliminarBache from './modalCRUD.js';
@@ -31,7 +31,6 @@ function exampleReducer(state, action) {
 function Lista() {
     const { data, setBache } = useContext(BacheContext)
     const searchBox = useRef()
-    const optionsBox = useRef()
     const [matchEvent, setMatchEvent] = useState(data)
 
     const userSearch = (searchQuery, potholes) => {
@@ -42,8 +41,7 @@ function Lista() {
             for (const pothole in potholes) {
                 if (potholes[pothole]._id === undefined || potholes[pothole]._id === null) {
                     potholeTitle = potholes[pothole].id.toLowerCase();
-                } else if (potholes[pothole].id === undefined || potholes[pothole].id === null) {
-                    //console.log(potholes[pothole]._id.toLowerCase());          
+                } else if (potholes[pothole].id === undefined || potholes[pothole].id === null) {          
                     potholeTitle = potholes[pothole]._id.toLowerCase();
                 }
                 let potholefirstIncident = potholes[pothole].firstIncident.toLowerCase();
@@ -89,11 +87,6 @@ function Lista() {
                         ref={searchBox}
                         onKeyUp={() => {
                             let searchQuery = searchBox.current.value.toLowerCase()
-                            // setTimeout(() => {
-                            //   if (searchQuery === searchBox.current.value.toLowerCase()) {
-                            //     userSearch(searchQuery, data)
-                            //    }
-                            //  })
                             userSearch(searchQuery, data)
                             console.log(searchQuery)
                         }}

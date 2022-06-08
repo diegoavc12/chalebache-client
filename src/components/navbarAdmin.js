@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import image from './imgs/logo.png';
 import './styles/navbar.css';
-import LogOutButton from './logOutButton';
+import LogOutButton from './logOutButton.js';
 
 export default class navbarAdmin extends Component {
     render() {

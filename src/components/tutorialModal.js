@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Header, Image, Modal } from 'semantic-ui-react';
+import { Button, Modal } from 'semantic-ui-react';
 import './styles/tutorialModal.css';
 import ReactPlayer from 'react-player';
 

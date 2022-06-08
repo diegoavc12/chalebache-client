@@ -7,16 +7,17 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
+
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="Images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">ChaleBache</h3>
 
   <p align="center">
-    React.js app that visualizes detected potholes through Google Maps API
+    React.js app that visualizes detected potholes through Google Maps API.
     <br />
     <a href="https://github.com/JMicalco/chalebache-client"><strong>Explore the docs »</strong></a>
     <br />
@@ -35,7 +36,7 @@
 
 [![Product Name Screen Shot][product-screenshot]]()
 
-Web App dedicated to show Location of possible potholes detected through a Mobile App, the app fetchs the data from JSON API and maps it through the use of Google Maps API.
+Web App dedicated to show location of possible potholes detected through a Mobile App, the app fetchs the data from JSON API and maps it through the use of Google Maps API.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -58,6 +59,11 @@ To get a local copy up and running follow these simple example steps.
 
 - [Node.js](https://nodejs.org/en/)
 
+### API Key
+
+For future developers, you will need to generate your own Google Maps API Key and make sure you have your Billing enabled. 
+For more information, see the next link: https://developers.google.com/maps/documentation/javascript/cloud-setup?hl=es-419
+
 ### Installation
 
 1. Clone the repo
@@ -70,13 +76,13 @@ To get a local copy up and running follow these simple example steps.
    npm install react-player --save
    ```
 
-### Ho to run
+### How To Run
 
 ```sh
   npm start
 ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 
@@ -85,28 +91,29 @@ To get a local copy up and running follow these simple example steps.
 ### Change to heatmap view
 
 <p align="center">
-<img src="./Images/hearmap.gif">
+<img src="./images/hearmap.gif">
 </p>
 
-### Select a pothole
+### Select A Pothole
 
 <p align="center">
-<img src="./Images/select.gif">
+<img src="./images/select.gif">
 </p>
 
 ### Reset View
 
 <p align="center">
-<img src="./Images/reset.gif">
+<img src="./images/reset.gif">
 </p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contact
 
-- José Adolfo Sánchez Micalco - [@Joseph_Micalco](https://twitter.com/Joseph_Micalco) - jmicalco@gmail.com - [Linkedin][linkedin-url]
+* José Adolfo Sánchez Micalco - [@Joseph_Micalco](https://twitter.com/Joseph_Micalco) - jmicalco@gmail.com - [Linkedin][linkedin-url]
+* Diego Armando Vázquez Cálderon - diegoavc12@outlook.com 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Back to Top</a>)</p>
 
 [contributors-shield]: https://img.shields.io/github/contributors/JMicalco/chalebache-client.svg?style=for-the-badge
 [contributors-url]: https://github.com/JMicalco/chalebache-client/graphs/contributors
@@ -118,4 +125,4 @@ To get a local copy up and running follow these simple example steps.
 [issues-url]: https://github.com/JMicalco/chalebache-client/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: www.linkedin.com/in/josé-adolfo-sánchez-micalco-b14864140
-[product-screenshot]: Images/Main.png
+[product-screenshot]: images/Main.png

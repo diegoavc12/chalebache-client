@@ -1,8 +1,8 @@
 /* eslint-disable */
-import React, { useRef, useContext, useEffect, useState, useCallback, memo } from 'react';
-import { GoogleMap, Marker, HeatmapLayer, InfoWindow, useLoadScript, DirectionsRenderer, Autocomplete } from '@react-google-maps/api';
+import React, { useContext, useEffect, useState, useCallback, memo } from 'react';
+import { GoogleMap, Marker, HeatmapLayer, InfoWindow, useLoadScript, DirectionsRenderer } from '@react-google-maps/api';
 import { BacheContext } from '../components/bacheContext';
-import { Button, Input } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { formatRelative, parseISO } from "date-fns";
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox";
@@ -45,7 +45,6 @@ function GoogleMaps() {
 
     const { isLoaded, loadError } = useLoadScript({
         id: 'google-map-script',
-        //AIzaSyC0M7zIOzXcPAk2eS9IZaFZvbBYqKP50OA
         googleMapsApiKey: "AIzaSyC0M7zIOzXcPAk2eS9IZaFZvbBYqKP50OA",
         libraries,
     })
@@ -128,8 +127,6 @@ function GoogleMaps() {
         if (ogDirection === null || destDirection === null) {
             return
         }
-        console.log("📍 Origin: ", ogDirection);
-        console.log("📍 Destination: ", destDirection);
         // eslint-disable-next-line no-undef
         const directionsService = new google.maps.DirectionsService()
         const results = await directionsService.route({
@@ -279,8 +276,7 @@ function Search({ panTo }) {
     )
 }
 
-/*Component for input origin and destination for route drawing
-Abstracted from Search function ComboBox*/
+/*Component for input origin and destination for route drawing Abstracted from Search function ComboBox*/
 const DirectionSelector = ({ setDirection }, { placeholderText }) => {
     const {
         ready,
@@ -293,7 +289,6 @@ const DirectionSelector = ({ setDirection }, { placeholderText }) => {
     const handleSelect = async (address) => {
         setValue(address, false);
         clearSuggestions();
-
         const results = await getGeocode({ address });
         const { lat, lng } = await getLatLng(results[0]);
         console.log("Route Coordinates: ", { lat, lng });

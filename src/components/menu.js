@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Grid, Menu, Segment } from 'semantic-ui-react';
 import LineChart from './customShapeBarChart';
 import PieChart from './pieChart';
-import AreaChart from './customStackedAreaChart';
 import './styles/menu.css';
 
 export default class MenuExampleTabularOnLeft extends Component {
@@ -12,7 +11,6 @@ export default class MenuExampleTabularOnLeft extends Component {
             activeItem: "top",
             showHideDemo1: true,
             showHideDemo2: false,
-            showHideDemo3: false
         };
         this.handleItemClick = this.handleItemClick.bind(this);
     }
@@ -21,16 +19,16 @@ export default class MenuExampleTabularOnLeft extends Component {
         this.setState({ activeItem: name })
         switch (name) {
             case "Top Baches":
-                this.setState({ showHideDemo1: true, showHideDemo2: false, showHideDemo3: false });
+                this.setState({ showHideDemo1: true, showHideDemo2: false });
                 break;
             case "Agrupamiento":
-                this.setState({ showHideDemo1: false, showHideDemo2: true, showHideDemo3: false });
+                this.setState({ showHideDemo1: false, showHideDemo2: true });
                 break;
         }
     }
     render() {
         const { activeItem } = this.state
-        const { showHideDemo1, showHideDemo2, showHideDemo3 } = this.state;
+        const { showHideDemo1, showHideDemo2 } = this.state;
         return (
             <Grid id='grid'>
                 <Grid.Column className='menuGrid' width={3}>
@@ -53,7 +51,6 @@ export default class MenuExampleTabularOnLeft extends Component {
                     <Segment id='segmentChart'>
                         {showHideDemo2 && <PieChart />}
                         {showHideDemo1 && <LineChart />}
-                        {showHideDemo3 && <AreaChart />}
                     </Segment>
                 </Grid.Column>
             </Grid>

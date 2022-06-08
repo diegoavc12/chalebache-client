@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { BacheContext } from './bacheContext';
-import { Button, Header, Modal, Icon } from 'semantic-ui-react';
+import { Button, Header, Modal } from 'semantic-ui-react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './styles/eraseModal.css';
+import './styles/modalCRUD.css';
 import axios from 'axios';
+
 toast.configure()
 
 function isEmpty(obj) {
@@ -19,7 +20,6 @@ const elimiBache = async (bache) => {
     try {
         console.log(bache)
         const API_CRUD = "https://chalebache-json-server.herokuapp.com"
-        //const respOld = await axios.delete(`${API_CRUD}/potholes/${bache._id}`)
         const resp = await axios.delete(`${API_CRUD}/potholes/${bache.id}`)
     } catch (error) {
 
@@ -32,7 +32,6 @@ function ModalExampleCloseIcon() {
     const [enable, setEnable] = React.useState(true)
     const notification = () => {
         toast.success("Bache eliminado")
-
     }
     useEffect(() => {
         console.log(bache)
@@ -55,7 +54,6 @@ function ModalExampleCloseIcon() {
                 }}>Eliminar</Button>}
                 onClose={() => setOpen(false)}
                 onOpen={() => {
-
                 }}
             >
                 <Header id='modalHeader' content='&#191;Est&#225;s seguro de eliminar el bache?' />
@@ -63,7 +61,7 @@ function ModalExampleCloseIcon() {
                     <p><b>Nombre:</b></p>
                     <p>{bache.name}</p>
                     <p><b>ID:</b></p>
-                    <p>{bache.id}{/* {<SemanticToastContainer position="top-right" />} */}</p>
+                    <p>{bache.id}</p>
                 </Modal.Content>
                 <Modal.Actions id='modalActions'>
                     <Button id='pButton' color='green' onClick={() => {
@@ -82,7 +80,6 @@ function ModalExampleCloseIcon() {
                 </Modal.Actions>
             </Modal>
         </div>
-
     )
 }
 

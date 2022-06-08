@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import image from './imgs/logo.png';
 import './styles/navbar.css';
-import TutorialModal from './tutorialModal';
-import AdminButton from './adminButton';
+import TutorialModal from './tutorialModal.js';
+import AdminButton from './adminButton.js';
 import { Button } from 'semantic-ui-react';
 
 export default class navbar extends Component {
@@ -10,7 +10,7 @@ export default class navbar extends Component {
         return (
             <div>
                 <div className="topnav">
-                    <img className="" src={image} />
+                    <img src={image} />
                     <h1>ChaleBache</h1>
                     <div id='navbarButtons'>
                         <Button.Group>

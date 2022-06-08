@@ -1,4 +1,3 @@
-import './App.css';
 import MainUserPage from './components/mainUsersApp';
 import LoginAdminPage from './components/adminLogin';
 import MainAdminCRUD from './components/mainAdminCrud';
@@ -20,7 +19,7 @@ function App() {
         fetchEvents();
     }, [])
     return (
-        <div className="App">
+        <div className="App" style={{ textAlign: 'center' }}>
             {!loading && <Router>
                 <Switch>
                     <Route exact path='/login'>
@@ -30,7 +29,6 @@ function App() {
                         <MainUserPage></MainUserPage>
                     </Route>
                     <Route exact path='/admins'>
-                        {/* {!loading && <MainAdminCRUD/>} */}
                         <MainAdminCRUD />
                     </Route>
                 </Switch>
