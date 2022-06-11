@@ -34,7 +34,9 @@
 
 ## About The Project
 
-[![Product Name ScreenShot][product-screenshot]]()
+<p align="center">
+<img src="./images/mainPage.jpg">
+</p>
 
 Web App dedicated to show location of possible potholes detected through a Mobile App, the app fetchs the data from JSON API and maps it through the use of Google Maps API.
 
@@ -185,4 +187,3 @@ For more information, see the next link: https://developers.google.com/maps/docu
 [issues-url]: https://github.com/JMicalco/chalebache-client/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: www.linkedin.com/in/josé-adolfo-sánchez-micalco-b14864140
-[product-screenshot]: images/...
