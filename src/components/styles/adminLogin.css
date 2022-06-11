@@ -10,7 +10,7 @@ body {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url("../imgs/BacheCity.jpg");
+    background-image: url("../imgs/bacheCity.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }

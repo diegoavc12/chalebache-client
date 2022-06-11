@@ -1,6 +1,6 @@
 import './styles/footerAdmin.css';
 import React, { Component } from 'react';
-import image from './imgs/TecMo.png';
+import image from './imgs/tecMo.png';
 
 export default class FooterAdmin extends Component {
     render() {

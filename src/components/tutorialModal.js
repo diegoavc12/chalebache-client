@@ -27,16 +27,16 @@ const TutorialModal = () => {
                             Para encontrar una direcci&#243;n espec&#237;fica, escr&#237;bela en el buscador y da "enter" para iniciar la b&#250;squeda.
                         </li>
                         <li>
-                            Para acceder al apartado de Administrador, da click sobre "Admin".
-                            <br /><i>(Para m&#225;s instrucciones de este apartado, ve el video anexado)</i>
+                            Para trazar una ruta sobre el mapa, escr&#237;be las direcciones involucradas sobre los espacios correspondientes del cuadro de trazado y 
+                            da click sobre el bot&#243;n "Trazar Ruta".
                         </li>
                         <li>
-                            Para cerrar el Tutorial, da click sobre la "X" o en cualquier parte externa al Tutorial.
+                            Para m&#225;s informaci&#243;n, ve el siguiente video que explicar&#225; todo sobre el uso de la p&#225;gina a detalle:
                         </li>
                     </ol>
                     <ReactPlayer
                         id='videoTuto'
-                        url='https://vimeo.com/707027466'
+                        url='https://vimeo.com/719452545'
                         controls
                     />
                 </Modal.Content>

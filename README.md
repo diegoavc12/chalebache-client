@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">ChaleBache</h3>
@@ -34,11 +34,11 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]()
+[![Product Name ScreenShot][product-screenshot]]()
 
 Web App dedicated to show location of possible potholes detected through a Mobile App, the app fetchs the data from JSON API and maps it through the use of Google Maps API.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
 ### Built With
 
@@ -47,7 +47,7 @@ Web App dedicated to show location of possible potholes detected through a Mobil
 - [Semantic UI React](https://react.semantic-ui.com)
 - [Vercel](https://vercel.com/dashboard)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -88,25 +88,85 @@ For more information, see the next link: https://developers.google.com/maps/docu
 
 ## Usage
 
+### Search an address
+
+<p align="center">
+<img src="./images/buscador.gif">
+</p>
+
+### Open a pothole Ícon
+
+<p align="center">
+<img src="./images/abrirBache.gif">
+</p>
+
+### Restart the map view
+
+<p align="center">
+<img src="./images/reiniciar.gif">
+</p>
+
 ### Change to heatmap view
 
 <p align="center">
-<img src="./images/hearmap.gif">
+<img src="./images/mapaCalor.gif">
 </p>
 
-### Select A Pothole
+### Trace a route
 
 <p align="center">
-<img src="./images/select.gif">
+<img src="./images/trazarRuta.gif">
 </p>
 
-### Reset View
+### Open the tutorial section
 
 <p align="center">
-<img src="./images/reset.gif">
+<img src="./images/tutorial.gif">
 </p>
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+### Open the login section
+
+<p align="center">
+<img src="./images/iniSesión.gif">
+</p>
+
+### Return to the main page
+
+<p align="center">
+<img src="./images/regresarSesión.gif">
+</p>
+
+### Mark if a pothole is repaired or not
+
+<p align="center">
+<img src="./images/checkbox.gif">
+</p>
+
+### Watch the information of a pothole on the map from the table
+
+<p align="center">
+<img src="./images/mapa.gif">
+</p>
+
+### Remove a pothole
+
+<p align="center">
+<img src="./images/eliminar.gif">
+</p>
+
+### Switch between charts
+
+<p align="center">
+<img src="./images/gráficas.gif">
+</p>
+
+### Log Out
+
+<p align="center">
+<img src="./images/cerrarSesión.gif">
+</p>
+
+<p align="right">(<a href="#top">Back to top</a>)</p>
 
 ## Contact
 
@@ -125,4 +185,4 @@ For more information, see the next link: https://developers.google.com/maps/docu
 [issues-url]: https://github.com/JMicalco/chalebache-client/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: www.linkedin.com/in/josé-adolfo-sánchez-micalco-b14864140
-[product-screenshot]: images/Main.png
+[product-screenshot]: images/...
